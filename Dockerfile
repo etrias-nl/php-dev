@@ -1,7 +1,8 @@
-FROM composer/composer:2.1.14 as composer
+FROM composer/composer:2.2.6 as composer
 FROM etriasnl/php-extensions:7.4-bullseye-apcu-5.1.21 as module_apcu
 FROM etriasnl/php-extensions:7.4-bullseye-bcmath-0 as module_bcmath
 FROM etriasnl/php-extensions:7.4-bullseye-exif-0 as module_exif
+FROM etriasnl/php-extensions:7.4-bullseye-gd-0 as module_gd
 FROM etriasnl/php-extensions:7.4-bullseye-gearman-2.1.0 as module_gearman
 FROM etriasnl/php-extensions:7.4-bullseye-gmagick-2.0.6rc1 as module_gmagick
 FROM etriasnl/php-extensions:7.4-bullseye-igbinary-3.2.6 as module_igbinary
@@ -15,7 +16,7 @@ FROM etriasnl/php-extensions:7.4-bullseye-sockets-0 as module_sockets
 FROM etriasnl/php-extensions:7.4-bullseye-xdebug-3.1.2 as module_xdebug
 FROM etriasnl/php-extensions:7.4-bullseye-zip-0 as module_zip
 
-FROM php:7.4.26-fpm
+FROM php:7.4.28-fpm
 
 ARG APP_ENV
 ARG APP_DEBUG
@@ -26,6 +27,7 @@ ENV APP_DEBUG $APP_DEBUG
 COPY --from=module_apcu /extension/ /extensions/apcu
 COPY --from=module_bcmath /extension/ /extensions/bcmath
 COPY --from=module_exif /extension/ /extensions/exif
+COPY --from=module_gd /extension/ /extensions/gd
 COPY --from=module_gearman /extension/ /extensions/gearman
 COPY --from=module_gmagick /extension/ /extensions/gmagick
 COPY --from=module_igbinary /extension/ /extensions/igbinary
@@ -42,6 +44,7 @@ COPY --from=module_zip /extension/ /extensions/zip
 RUN /extensions/apcu/install.sh && \
   /extensions/bcmath/install.sh && \
   /extensions/exif/install.sh && \
+  /extensions/gd/install.sh && \
   /extensions/gearman/install.sh && \
   /extensions/gmagick/install.sh && \
   /extensions/igbinary/install.sh && \
