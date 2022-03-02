@@ -22,9 +22,9 @@ COPY php_ini/* /usr/local/etc/php/conf.d
 
 # Developer tools
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    vim \
-    nano \
-    && rm -rf /var/lib/apt/lists/*
+	vim \
+	nano \
+	&& rm -rf /var/lib/apt/lists/*
 
 # PHP tools
 COPY --from=composer /usr/bin/composer /usr/bin/composer
