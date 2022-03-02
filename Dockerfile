@@ -22,8 +22,8 @@ COPY php_ini/* /usr/local/etc/php/conf.d
 
 # Developer tools
 RUN apt-get update && apt-get install -y --no-install-recommends \
-	vim \
-	nano \
+	vim nano \
+	curl wget \
 	&& rm -rf /var/lib/apt/lists/*
 
 # PHP tools
