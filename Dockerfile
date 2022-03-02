@@ -18,18 +18,7 @@ FROM artifacts.eko/docker.io/etriasnl/php-extensions:7.4-bullseye-zip-0 as modul
 
 FROM artifacts.eko/docker.io/library/php:7.4.28-fpm
 
-COPY php_ini/* /usr/local/etc/php/conf.d
-
-# Developer tools
-RUN apt-get update && apt-get install -y --no-install-recommends \
-	vim nano \
-	curl wget \
-	&& rm -rf /var/lib/apt/lists/*
-
-# PHP tools
 COPY --from=composer /usr/bin/composer /usr/bin/composer
-
-# PHP extensions
 COPY --from=module_apcu /extension/ /extensions/apcu
 COPY --from=module_bcmath /extension/ /extensions/bcmath
 COPY --from=module_exif /extension/ /extensions/exif
@@ -63,5 +52,14 @@ RUN /extensions/apcu/install.sh && \
 	/extensions/sockets/install.sh && \
 	/extensions/xdebug/install.sh && \
 	/extensions/zip/install.sh
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+	vim nano \
+	curl wget \
+	&& rm -rf /var/lib/apt/lists/*
+
+RUN wget -O /usr/bin/composer-normalize https://github.com/ergebnis/composer-normalize/releases/latest/download/composer-normalize.phar && chmod +x /usr/bin/composer-normalize
+
+COPY php_ini/* /usr/local/etc/php/conf.d
 
 WORKDIR /app
