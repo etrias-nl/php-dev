@@ -56,9 +56,12 @@ RUN /extensions/apcu/install.sh && \
 RUN apt-get update && apt-get install -y --no-install-recommends \
 	vim nano \
 	curl wget \
+	dnsutils iputils-ping \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN wget -O /usr/bin/composer-normalize https://github.com/ergebnis/composer-normalize/releases/latest/download/composer-normalize.phar && chmod +x /usr/bin/composer-normalize
+RUN wget -O /usr/bin/psalm https://github.com/vimeo/psalm/releases/latest/download/psalm.phar && chmod +x /usr/bin/psalm
+RUN wget -O /usr/bin/php-cs-fixer  https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/latest/download/php-cs-fixer.phar && chmod +x /usr/bin/php-cs-fixer
 
 COPY php_ini/* /usr/local/etc/php/conf.d
 
