@@ -1,4 +1,4 @@
-TAG=etriasnl/dev-php-fpm
+TAG=etriasnl/dev-php-fpm:7.4.28
 
 build:
 	docker build -t ${TAG} .

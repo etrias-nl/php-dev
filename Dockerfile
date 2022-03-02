@@ -20,7 +20,16 @@ FROM artifacts.eko/docker.io/library/php:7.4.28-fpm
 
 COPY php_ini/* /usr/local/etc/php/conf.d
 
-# PHP Extensions
+# Developer tools
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    vim \
+    nano \
+    && rm -rf /var/lib/apt/lists/*
+
+# PHP tools
+COPY --from=composer /usr/bin/composer /usr/bin/composer
+
+# PHP extensions
 COPY --from=module_apcu /extension/ /extensions/apcu
 COPY --from=module_bcmath /extension/ /extensions/bcmath
 COPY --from=module_exif /extension/ /extensions/exif
@@ -54,8 +63,5 @@ RUN /extensions/apcu/install.sh && \
 	/extensions/sockets/install.sh && \
 	/extensions/xdebug/install.sh && \
 	/extensions/zip/install.sh
-
-# Tools
-COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
