@@ -5,3 +5,5 @@ build:
 run:
 	docker run -it ${TAG} bash
 fresh-run: build run
+release: build
+	docker push ${TAG}
