@@ -61,7 +61,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN wget -O /usr/bin/composer-normalize https://github.com/ergebnis/composer-normalize/releases/latest/download/composer-normalize.phar && chmod +x /usr/bin/composer-normalize
 RUN wget -O /usr/bin/psalm https://github.com/vimeo/psalm/releases/latest/download/psalm.phar && chmod +x /usr/bin/psalm
-RUN wget -O /usr/bin/php-cs-fixer  https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/latest/download/php-cs-fixer.phar && chmod +x /usr/bin/php-cs-fixer
+RUN wget -O /usr/bin/php-cs-fixer https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/latest/download/php-cs-fixer.phar && chmod +x /usr/bin/php-cs-fixer
+RUN wget -O /usr/bin/phpunit.phar https://phar.phpunit.de/phpunit-9.phar && chmod +x /usr/bin/phpunit.phar \
+	&& phar extract -f /usr/bin/phpunit.phar /opt/phpunit-src \
+	&& mv /usr/bin/phpunit.phar /usr/bin/phpunit
 
 COPY php_ini/* /usr/local/etc/php/conf.d
 
