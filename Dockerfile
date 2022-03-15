@@ -1,4 +1,4 @@
-FROM artifacts.eko/docker.io/composer/composer:2.2.6 as composer
+FROM artifacts.eko/docker.io/composer/composer:2.2.7 as composer
 FROM artifacts.eko/docker.io/etriasnl/php-extensions:7.4-bullseye-apcu-5.1.21 as module_apcu
 FROM artifacts.eko/docker.io/etriasnl/php-extensions:7.4-bullseye-bcmath-0 as module_bcmath
 FROM artifacts.eko/docker.io/etriasnl/php-extensions:7.4-bullseye-exif-0 as module_exif
