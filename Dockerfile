@@ -57,7 +57,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
     git \
     vim nano \
     curl wget \
-    dnsutils iputils-ping lsof \
+    dnsutils iputils-ping lsof net-tools \
     && rm -rf /var/lib/apt/lists/*
 
 RUN wget -O /usr/bin/composer-normalize https://github.com/ergebnis/composer-normalize/releases/latest/download/composer-normalize.phar && chmod +x /usr/bin/composer-normalize
