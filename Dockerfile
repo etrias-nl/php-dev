@@ -68,5 +68,6 @@ RUN wget -O /usr/bin/phpunit.phar https://phar.phpunit.de/phpunit-9.phar && chmo
     && mv /usr/bin/phpunit.phar /usr/bin/phpunit
 
 COPY php_ini/* /usr/local/etc/php/conf.d
+COPY entrypoint.sh /
 
 WORKDIR /app
