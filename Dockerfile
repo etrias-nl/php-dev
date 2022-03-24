@@ -67,7 +67,9 @@ RUN wget -O /usr/bin/phpunit.phar https://phar.phpunit.de/phpunit-9.phar && chmo
     && phar extract -f /usr/bin/phpunit.phar /opt/phpunit-src \
     && mv /usr/bin/phpunit.phar /usr/bin/phpunit
 
-COPY php_ini/* /usr/local/etc/php/conf.d
+RUN echo "alias ll='ls -alF --group-directories-first --color=auto'" >> ~/.bashrc
+
+COPY php-ini/* /usr/local/etc/php/conf.d/
 COPY entrypoint.sh /
 
 WORKDIR /app
