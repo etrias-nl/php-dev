@@ -56,7 +56,7 @@ RUN /extensions/apcu/install.sh && \
 # hadolint ignore=DL3008
 RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
     dnsutils iputils-ping lsof net-tools \
-    git vim nano curl wget \
+    git vim nano curl wget bash-completion \
     && rm -rf /var/lib/apt/lists/*
 
 RUN wget -qO /usr/bin/composer-normalize https://github.com/ergebnis/composer-normalize/releases/latest/download/composer-normalize.phar && chmod +x /usr/bin/composer-normalize
