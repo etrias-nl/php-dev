@@ -53,6 +53,7 @@ RUN /extensions/apcu/install.sh && \
     /extensions/xdebug/install.sh && \
     /extensions/zip/install.sh
 
+# hadolint ignore=DL3008
 RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
     git \
     vim nano \
@@ -60,10 +61,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
     dnsutils iputils-ping lsof net-tools \
     && rm -rf /var/lib/apt/lists/*
 
-RUN wget -O /usr/bin/composer-normalize https://github.com/ergebnis/composer-normalize/releases/latest/download/composer-normalize.phar && chmod +x /usr/bin/composer-normalize
-RUN wget -O /usr/bin/psalm https://github.com/vimeo/psalm/releases/latest/download/psalm.phar && chmod +x /usr/bin/psalm
-RUN wget -O /usr/bin/php-cs-fixer https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/latest/download/php-cs-fixer.phar && chmod +x /usr/bin/php-cs-fixer
-RUN wget -O /usr/bin/phpunit.phar https://phar.phpunit.de/phpunit-9.phar && chmod +x /usr/bin/phpunit.phar \
+RUN wget -qO /usr/bin/composer-normalize https://github.com/ergebnis/composer-normalize/releases/latest/download/composer-normalize.phar && chmod +x /usr/bin/composer-normalize
+RUN wget -qO /usr/bin/psalm https://github.com/vimeo/psalm/releases/latest/download/psalm.phar && chmod +x /usr/bin/psalm
+RUN wget -qO /usr/bin/php-cs-fixer https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/latest/download/php-cs-fixer.phar && chmod +x /usr/bin/php-cs-fixer
+RUN wget -qO /usr/bin/phpunit.phar https://phar.phpunit.de/phpunit-9.phar && chmod +x /usr/bin/phpunit.phar \
     && phar extract -f /usr/bin/phpunit.phar /opt/phpunit-src \
     && mv /usr/bin/phpunit.phar /usr/bin/phpunit
 
