@@ -66,6 +66,7 @@ RUN wget -qO /usr/bin/phpunit.phar https://phar.phpunit.de/phpunit-9.phar && chm
     && phar extract -f /usr/bin/phpunit.phar /opt/phpunit-src \
     && mv /usr/bin/phpunit.phar /usr/bin/phpunit
 
+RUN echo "source /etc/profile.d/bash_completion.sh" >> /root/.bashrc
 RUN echo "alias ll='ls -alF --group-directories-first --color=auto'" >> /root/.bashrc
 
 COPY php-ini/* /usr/local/etc/php/conf.d/
