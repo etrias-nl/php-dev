@@ -36,22 +36,22 @@ COPY --from=module_sockets /extension/ /extensions/sockets
 COPY --from=module_xdebug /extension/ /extensions/xdebug
 COPY --from=module_zip /extension/ /extensions/zip
 
-RUN /extensions/apcu/install.sh && \
-    /extensions/bcmath/install.sh && \
-    /extensions/exif/install.sh && \
-    /extensions/gd/install.sh && \
-    /extensions/gearman/install.sh && \
-    /extensions/gmagick/install.sh && \
-    /extensions/igbinary/install.sh && \
-    /extensions/imap/install.sh && \
-    /extensions/intl/install.sh && \
-    /extensions/opcache/install.sh && \
-    /extensions/pdo_mysql/install.sh && \
-    /extensions/redis/install.sh && \
-    /extensions/soap/install.sh && \
-    /extensions/sockets/install.sh && \
-    /extensions/xdebug/install.sh && \
-    /extensions/zip/install.sh
+RUN /extensions/apcu/install.sh
+RUN /extensions/bcmath/install.sh
+RUN /extensions/exif/install.sh
+RUN /extensions/gd/install.sh
+RUN /extensions/gearman/install.sh
+RUN /extensions/gmagick/install.sh
+RUN /extensions/igbinary/install.sh
+RUN /extensions/imap/install.sh
+RUN /extensions/intl/install.sh
+RUN /extensions/opcache/install.sh
+RUN /extensions/pdo_mysql/install.sh
+RUN /extensions/redis/install.sh
+RUN /extensions/soap/install.sh
+RUN /extensions/sockets/install.sh
+RUN /extensions/xdebug/install.sh
+RUN /extensions/zip/install.sh
 
 # hadolint ignore=DL3008
 RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
