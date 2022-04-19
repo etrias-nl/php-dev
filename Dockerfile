@@ -16,7 +16,7 @@ FROM etriasnl/php-extensions:7.4-bullseye-sockets-0 as module_sockets
 FROM etriasnl/php-extensions:7.4-bullseye-xdebug-3.1.2 as module_xdebug
 FROM etriasnl/php-extensions:7.4-bullseye-zip-0 as module_zip
 
-FROM php:7.4.28-fpm
+FROM php:8.1.5-fpm
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 COPY --from=module_apcu /extension/ /extensions/apcu
