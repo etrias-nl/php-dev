@@ -1,4 +1,4 @@
-TAG=etriasnl/dev-php-fpm:7.4.28
+TAG=etriasnl/dev-php-fpm:7.4.29
 MAKEFLAGS += --warn-undefined-variables
 
 lint:
