@@ -1,4 +1,9 @@
-TAG=etriasnl/dev-php-fpm:7.4.29
+IMAGE=etriasnl/dev-php-fpm
+VERSION=7.4.29-1
+
+TAG=${IMAGE}:${VERSION}
+LATEST=${IMAGE}:latest
+
 MAKEFLAGS += --warn-undefined-variables
 
 DEFAULT_GOAL := help
@@ -8,8 +13,9 @@ help:
 lint:
 	docker run -it --rm -v "$(shell pwd):/app" -w /app hadolint/hadolint hadolint --ignore DL3059 Dockerfile
 release: lint
-	docker buildx build -t "${TAG}" .
+	docker build -t "${TAG}" -t "${LATEST}" .
 run: release
 	docker run --rm -it "${TAG}" bash
 publish: release
 	docker push "${TAG}"
+	docker push "${LATEST}"

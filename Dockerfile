@@ -18,6 +18,8 @@ FROM etriasnl/php-extensions:7.4-bullseye-zip-0 as module_zip
 
 FROM php:7.4.29-fpm
 
+RUN useradd -ms /bin/bash --uid 1500 symfony
+
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 COPY --from=module_apcu /extension/ /extensions/apcu
 COPY --from=module_bcmath /extension/ /extensions/bcmath
@@ -36,22 +38,22 @@ COPY --from=module_sockets /extension/ /extensions/sockets
 COPY --from=module_xdebug /extension/ /extensions/xdebug
 COPY --from=module_zip /extension/ /extensions/zip
 
-RUN /extensions/apcu/install.sh
-RUN /extensions/bcmath/install.sh
-RUN /extensions/exif/install.sh
-RUN /extensions/gd/install.sh
-RUN /extensions/gearman/install.sh
-RUN /extensions/gmagick/install.sh
-RUN /extensions/igbinary/install.sh
-RUN /extensions/imap/install.sh
-RUN /extensions/intl/install.sh
-RUN /extensions/opcache/install.sh
-RUN /extensions/pdo_mysql/install.sh
-RUN /extensions/redis/install.sh
-RUN /extensions/soap/install.sh
-RUN /extensions/sockets/install.sh
-RUN /extensions/xdebug/install.sh
-RUN /extensions/zip/install.sh
+RUN /extensions/apcu/install.sh \
+    && /extensions/bcmath/install.sh \
+    && /extensions/exif/install.sh \
+    && /extensions/gd/install.sh \
+    && /extensions/gearman/install.sh \
+    && /extensions/gmagick/install.sh \
+    && /extensions/igbinary/install.sh \
+    && /extensions/imap/install.sh \
+    && /extensions/intl/install.sh \
+    && /extensions/opcache/install.sh \
+    && /extensions/pdo_mysql/install.sh \
+    && /extensions/redis/install.sh \
+    && /extensions/soap/install.sh \
+    && /extensions/sockets/install.sh \
+    && /extensions/xdebug/install.sh \
+    && /extensions/zip/install.sh
 
 # hadolint ignore=DL3008
 RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
@@ -67,8 +69,8 @@ RUN wget -qO /usr/bin/phpunit.phar https://phar.phpunit.de/phpunit-9.phar && chm
     && phar extract -f /usr/bin/phpunit.phar /opt/phpunit-src \
     && mv /usr/bin/phpunit.phar /usr/bin/phpunit
 
-RUN echo "source /etc/profile.d/bash_completion.sh" >> /root/.bashrc
-RUN echo "alias ll='ls -alF --group-directories-first --color=auto'" >> /root/.bashrc
+RUN echo "source /etc/profile.d/bash_completion.sh" >> /root/.bashrc \
+    && echo "alias ll='ls -alF --group-directories-first --color=auto'" >> /root/.bashrc
 
 COPY php-ini/* /usr/local/etc/php/conf.d/
 COPY entrypoint.sh /
