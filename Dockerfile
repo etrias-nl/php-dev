@@ -75,4 +75,6 @@ RUN echo "source /etc/profile.d/bash_completion.sh" >> /root/.bashrc \
 COPY php-ini/* /usr/local/etc/php/conf.d/
 COPY entrypoint.sh /
 
+RUN mkdir -m777 /var/okteto
+
 WORKDIR /app
