@@ -2,6 +2,7 @@ FROM node:16.15.0-slim as node
 FROM composer:2.3.5 as composer
 FROM etriasnl/php-extensions:7.4-bullseye-apcu-5.1.21 as module_apcu
 FROM etriasnl/php-extensions:7.4-bullseye-bcmath-0 as module_bcmath
+FROM etriasnl/php-extensions:7.4-bullseye-calendar-0 as module_calendar
 FROM etriasnl/php-extensions:7.4-bullseye-exif-0 as module_exif
 FROM etriasnl/php-extensions:7.4-bullseye-gd-0 as module_gd
 FROM etriasnl/php-extensions:7.4-bullseye-gearman-2.1.0 as module_gearman
@@ -24,6 +25,7 @@ RUN useradd -ms /bin/bash --uid 1500 symfony
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 COPY --from=module_apcu /extension/ /extensions/apcu
 COPY --from=module_bcmath /extension/ /extensions/bcmath
+COPY --from=module_calendar /extension/ /extensions/calendar
 COPY --from=module_exif /extension/ /extensions/exif
 COPY --from=module_gd /extension/ /extensions/gd
 COPY --from=module_gearman /extension/ /extensions/gearman
@@ -41,6 +43,7 @@ COPY --from=module_zip /extension/ /extensions/zip
 
 RUN /extensions/apcu/install.sh \
     && /extensions/bcmath/install.sh \
+    && /extensions/calendar/install.sh \
     && /extensions/exif/install.sh \
     && /extensions/gd/install.sh \
     && /extensions/gearman/install.sh \
