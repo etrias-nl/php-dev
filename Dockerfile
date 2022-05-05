@@ -1,3 +1,4 @@
+FROM node:16.15.0-slim as node
 FROM composer:2.3.5 as composer
 FROM etriasnl/php-extensions:7.4-bullseye-apcu-5.1.21 as module_apcu
 FROM etriasnl/php-extensions:7.4-bullseye-bcmath-0 as module_bcmath
@@ -16,7 +17,7 @@ FROM etriasnl/php-extensions:7.4-bullseye-sockets-0 as module_sockets
 FROM etriasnl/php-extensions:7.4-bullseye-xdebug-3.1.2 as module_xdebug
 FROM etriasnl/php-extensions:7.4-bullseye-zip-0 as module_zip
 
-FROM php:7.4.29-fpm
+FROM php:7.4.29-fpm AS php
 
 RUN useradd -ms /bin/bash --uid 1500 symfony
 
@@ -79,3 +80,11 @@ COPY entrypoint.sh /
 RUN mkdir -m777 /var/okteto
 
 WORKDIR /app
+
+FROM php as php_node
+
+COPY --from=node /usr/local/bin/node /usr/bin/node
+COPY --from=node /opt/yarn* /opt/yarn
+
+RUN ln -s /opt/yarn/bin/yarn.js /usr/bin/yarn
+RUN yarn config set cache-folder /yarn/cache
