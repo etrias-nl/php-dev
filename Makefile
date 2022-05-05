@@ -1,5 +1,5 @@
 IMAGE=etriasnl/dev-php-fpm
-VERSION=7.4.29-3
+VERSION=7.4.29-4
 
 TAG=${IMAGE}:${VERSION}
 LATEST=${IMAGE}:latest
