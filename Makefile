@@ -1,7 +1,8 @@
 IMAGE=etriasnl/dev-php-fpm
 PHP_VERSION=7.4.29-8
 NODE_VERSION=16.15.0
-MAKEFLAGS += --warn-undefined-variables
+MAKEFLAGS += --warn-undefined-variables --always-make
+.DEFAULT_GOAL := _
 
 PHP_TAG=${IMAGE}:${PHP_VERSION}
 PHP_LATEST=${IMAGE}:latest
