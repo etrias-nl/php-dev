@@ -79,7 +79,6 @@ RUN echo "source /etc/profile.d/bash_completion.sh" >> /root/.bashrc \
     && echo "alias xphp='XDEBUG_TRIGGER=PHPSTORM php'" >> /root/.bashrc
 
 COPY php-ini/* /usr/local/etc/php/conf.d/
-COPY entrypoint.sh /
 
 RUN mkdir -m777 /var/okteto
 
