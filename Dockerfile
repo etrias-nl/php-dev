@@ -87,7 +87,10 @@ WORKDIR /app
 FROM php as php_node
 
 COPY --from=node /usr/local/bin/node /usr/bin/node
+COPY --from=node /usr/local/lib/node_modules /usr/lib/node_modules
 COPY --from=node /opt/yarn* /opt/yarn
 
+RUN ln -s /usr/lib/node_modules/npm/bin/npm-cli.js /usr/bin/npm
+RUN ln -s /usr/lib/node_modules/npm/bin/npx-cli.js /usr/bin/npx
 RUN ln -s /opt/yarn/bin/yarn.js /usr/bin/yarn
 RUN yarn config set cache-folder /yarn/cache
