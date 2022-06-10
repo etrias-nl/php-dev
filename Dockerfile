@@ -18,7 +18,7 @@ FROM etriasnl/php-extensions:7.4-bullseye-sockets-0 as module_sockets
 FROM etriasnl/php-extensions:7.4-bullseye-xdebug-3.1.2 as module_xdebug
 FROM etriasnl/php-extensions:7.4-bullseye-zip-0 as module_zip
 
-FROM php:7.4.29-fpm AS php
+FROM php:7.4.30-fpm AS php
 
 RUN useradd -ms /bin/bash --uid 1500 symfony
 
