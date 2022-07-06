@@ -1,5 +1,5 @@
 FROM node:16.15.1-slim as node
-FROM composer:2.3.7 as composer
+FROM composer:2.3.8 as composer
 FROM etriasnl/php-extensions:7.4-bullseye-apcu-5.1.21 as module_apcu
 FROM etriasnl/php-extensions:7.4-bullseye-bcmath-0 as module_bcmath
 FROM etriasnl/php-extensions:7.4-bullseye-calendar-0 as module_calendar
