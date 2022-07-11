@@ -1,4 +1,4 @@
-FROM node:16.15.1-slim as node
+FROM node:16.16.0-slim as node
 FROM composer:2.3.9 as composer
 FROM etriasnl/php-extensions:7.4-bullseye-apcu-5.1.21 as module_apcu
 FROM etriasnl/php-extensions:7.4-bullseye-bcmath-0 as module_bcmath
