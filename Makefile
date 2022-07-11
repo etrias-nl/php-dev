@@ -1,6 +1,6 @@
 IMAGE=etriasnl/dev-php-fpm
 PHP_VERSION=7.4.30-9
-NODE_VERSION=16.15.1
+NODE_VERSION=16.16.0
 MAKEFLAGS += --warn-undefined-variables --always-make
 .DEFAULT_GOAL := _
 
