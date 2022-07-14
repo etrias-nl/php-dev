@@ -4,7 +4,7 @@ FROM etriasnl/php-extensions:7.4-bullseye-apcu-5.1.21 as module_apcu
 FROM etriasnl/php-extensions:7.4-bullseye-bcmath-0 as module_bcmath
 FROM etriasnl/php-extensions:7.4-bullseye-calendar-0 as module_calendar
 FROM etriasnl/php-extensions:7.4-bullseye-exif-0 as module_exif
-FROM etriasnl/php-extensions:7.4-bullseye-gd-0 as module_gd
+FROM etriasnl/php-extensions:7.4-bullseye-gd-1 as module_gd
 FROM etriasnl/php-extensions:7.4-bullseye-gearman-2.1.0 as module_gearman
 FROM etriasnl/php-extensions:7.4-bullseye-gmagick-2.0.6rc1 as module_gmagick
 FROM etriasnl/php-extensions:7.4-bullseye-igbinary-3.2.6 as module_igbinary
