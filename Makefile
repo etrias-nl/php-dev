@@ -1,5 +1,5 @@
-PHP_VERSION=7.4.30
-NODE_VERSION=16.16.0
+PHP_VERSION=$(shell cat Dockerfile | grep 'FROM php:' | cut -f2 -d':' | cut -f1 -d '-')
+NODE_VERSION=$(shell cat Dockerfile | grep 'FROM node:' | cut -f2 -d':' | cut -f1 -d '-')
 PATCH_VERSION=12
 DOCKER_IMAGE=etriasnl/dev-php-fpm
 DOCKER_PROGRESS?=auto
