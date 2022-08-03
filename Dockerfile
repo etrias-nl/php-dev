@@ -1,5 +1,6 @@
 FROM node:16.16.0-slim as node
 FROM composer:2.3.10 as composer
+FROM stephenc/envsub:0.1.3 as envsub
 FROM etriasnl/php-extensions:7.4-bullseye-apcu-5.1.21 as module_apcu
 FROM etriasnl/php-extensions:7.4-bullseye-bcmath-0 as module_bcmath
 FROM etriasnl/php-extensions:7.4-bullseye-calendar-0 as module_calendar
@@ -23,6 +24,7 @@ FROM php:7.4.30-fpm AS php
 RUN useradd -ms /bin/bash --uid 1500 symfony
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
+COPY --from=envsub /bin/envsub /usr/bin/
 COPY --from=module_apcu /extension/ /extensions/apcu
 COPY --from=module_bcmath /extension/ /extensions/bcmath
 COPY --from=module_calendar /extension/ /extensions/calendar
