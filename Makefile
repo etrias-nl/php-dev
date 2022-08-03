@@ -1,13 +1,14 @@
-PHP_VERSION=7.4.30-12
+PHP_VERSION=7.4.30
 NODE_VERSION=16.16.0
+PATCH_VERSION=12
 DOCKER_IMAGE=etriasnl/dev-php-fpm
 DOCKER_PROGRESS?=auto
 MAKEFLAGS += --warn-undefined-variables --always-make
 .DEFAULT_GOAL := _
 
-PHP_TAG=${DOCKER_IMAGE}:${PHP_VERSION}
+PHP_TAG=${DOCKER_IMAGE}:${PHP_VERSION}-${PATCH_VERSION}
 PHP_LATEST=${DOCKER_IMAGE}:latest
-PHP_NODE_TAG=${DOCKER_IMAGE}:${PHP_VERSION}-node-${NODE_VERSION}
+PHP_NODE_TAG=${PHP_TAG}-node-${NODE_VERSION}
 
 lint:
 	docker run -it --rm -v "$(shell pwd):/app" -w /app hadolint/hadolint hadolint --ignore DL3059 Dockerfile
