@@ -84,7 +84,7 @@ RUN echo "source /etc/profile.d/bash_completion.sh" >> /root/.bashrc \
     && echo "alias xphp='XDEBUG_TRIGGER=PHPSTORM php'" >> /root/.bashrc
 
 # hadolint ignore=DL4006
-RUN composer completion | tee /etc/bash_completion.d/composer
+RUN composer completion bash | tee /etc/bash_completion.d/composer
 
 COPY php-ini/* /usr/local/etc/php/conf.d/
 
