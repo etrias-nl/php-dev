@@ -1,6 +1,6 @@
 PHP_VERSION=$(shell cat Dockerfile | grep 'FROM php:' | cut -f2 -d':' | cut -f1 -d '-')
 NODE_VERSION=$(shell cat Dockerfile | grep 'FROM node:' | cut -f2 -d':' | cut -f1 -d '-')
-PATCH_VERSION=16
+PATCH_VERSION=17
 DOCKER_IMAGE=etriasnl/dev-php-fpm
 DOCKER_PROGRESS?=auto
 MAKEFLAGS += --warn-undefined-variables --always-make
