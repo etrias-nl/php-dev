@@ -1,7 +1,7 @@
 DOCKERFILE?=Dockerfile
 PHP_VERSION=$(shell cat "${DOCKERFILE}" | grep 'FROM php:' | cut -f2 -d':' | cut -f1 -d '-')
 NODE_VERSION=$(shell cat "${DOCKERFILE}" | grep 'FROM node:' | cut -f2 -d':' | cut -f1 -d '-')
-PATCH_VERSION=20
+PATCH_VERSION=21
 DOCKER_IMAGE=etriasnl/dev-php-fpm
 DOCKER_PROGRESS?=auto
 MAKEFLAGS += --warn-undefined-variables --always-make
