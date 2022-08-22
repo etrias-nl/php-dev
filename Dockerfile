@@ -19,7 +19,6 @@ FROM etriasnl/php-extensions:7.4-bullseye-soap-0 as module_soap
 FROM etriasnl/php-extensions:7.4-bullseye-sockets-0 as module_sockets
 FROM etriasnl/php-extensions:7.4-bullseye-xdebug-3.1.2 as module_xdebug
 FROM etriasnl/php-extensions:7.4-bullseye-zip-0 as module_zip
-FROM etriasnl/php-extensions:7.4-bullseye-xsl-0 as module_xsl
 
 FROM php:7.4.30-fpm AS php
 
@@ -45,7 +44,6 @@ COPY --from=module_soap /extension/ /extensions/soap
 COPY --from=module_sockets /extension/ /extensions/sockets
 COPY --from=module_xdebug /extension/ /extensions/xdebug
 COPY --from=module_zip /extension/ /extensions/zip
-COPY --from=module_xsl /extension/ /extensions/xsl
 
 RUN /extensions/apcu/install.sh \
     && /extensions/bcmath/install.sh \
@@ -63,8 +61,7 @@ RUN /extensions/apcu/install.sh \
     && /extensions/soap/install.sh \
     && /extensions/sockets/install.sh \
     && /extensions/xdebug/install.sh \
-    && /extensions/zip/install.sh \
-    && /extensions/xsl/install.sh
+    && /extensions/zip/install.sh
 
 # hadolint ignore=DL3008
 RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
