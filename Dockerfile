@@ -8,7 +8,7 @@ FROM etriasnl/php-extensions:7.4-bullseye-calendar-0 as module_calendar
 FROM etriasnl/php-extensions:7.4-bullseye-exif-0 as module_exif
 FROM etriasnl/php-extensions:7.4-bullseye-gd-2 as module_gd
 FROM etriasnl/php-extensions:7.4-bullseye-gearman-2.1.0 as module_gearman
-FROM etriasnl/php-extensions:7.4-bullseye-gmagick-2.0.6rc1-1.3.38-15 as module_gmagick
+FROM etriasnl/php-extensions:7.4-bullseye-gmagick-2.0.6rc1-1.3.38-16 as module_gmagick
 FROM etriasnl/php-extensions:7.4-bullseye-igbinary-3.2.6 as module_igbinary
 FROM etriasnl/php-extensions:7.4-bullseye-imap-0 as module_imap
 FROM etriasnl/php-extensions:7.4-bullseye-intl-0 as module_intl
@@ -61,7 +61,8 @@ RUN /extensions/apcu/install.sh \
     && /extensions/soap/install.sh \
     && /extensions/sockets/install.sh \
     && /extensions/xdebug/install.sh \
-    && /extensions/zip/install.sh
+    && /extensions/zip/install.sh \
+    && rm -rf /extensions
 
 # hadolint ignore=DL3008
 RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
