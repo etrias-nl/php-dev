@@ -8,7 +8,7 @@ FROM etriasnl/php-extensions:7.4-bullseye-calendar-0 as module_calendar
 FROM etriasnl/php-extensions:7.4-bullseye-exif-0 as module_exif
 FROM etriasnl/php-extensions:7.4-bullseye-gd-2 as module_gd
 FROM etriasnl/php-extensions:7.4-bullseye-gearman-2.1.0 as module_gearman
-FROM etriasnl/php-extensions:7.4-bullseye-gmagick-2.0.6rc1-1.3.38-5 as module_gmagick
+FROM etriasnl/php-extensions:7.4-bullseye-gmagick-2.0.6rc1-1.3.38-15 as module_gmagick
 FROM etriasnl/php-extensions:7.4-bullseye-igbinary-3.2.6 as module_igbinary
 FROM etriasnl/php-extensions:7.4-bullseye-imap-0 as module_imap
 FROM etriasnl/php-extensions:7.4-bullseye-intl-0 as module_intl
@@ -99,7 +99,7 @@ COPY --from=node /usr/local/bin/node /usr/bin/node
 COPY --from=node /usr/local/lib/node_modules /usr/lib/node_modules
 COPY --from=node /opt/yarn* /opt/yarn
 
-RUN ln -s /usr/lib/node_modules/npm/bin/npm-cli.js /usr/bin/npm
-RUN ln -s /usr/lib/node_modules/npm/bin/npx-cli.js /usr/bin/npx
-RUN ln -s /opt/yarn/bin/yarn.js /usr/bin/yarn
-RUN yarn config set cache-folder /yarn/cache
+RUN ln -s /usr/lib/node_modules/npm/bin/npm-cli.js /usr/bin/npm && \
+    ln -s /usr/lib/node_modules/npm/bin/npx-cli.js /usr/bin/npx && \
+    ln -s /opt/yarn/bin/yarn.js /usr/bin/yarn && \
+    yarn config set cache-folder /yarn/cache
