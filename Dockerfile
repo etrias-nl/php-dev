@@ -18,7 +18,7 @@ FROM etriasnl/php-extensions:7.4-bullseye-redis-5.3.4 as module_redis
 FROM etriasnl/php-extensions:7.4-bullseye-soap-0 as module_soap
 FROM etriasnl/php-extensions:7.4-bullseye-sockets-0 as module_sockets
 FROM etriasnl/php-extensions:7.4-bullseye-xdebug-3.1.2 as module_xdebug
-FROM etriasnl/php-extensions:7.4-bullseye-zip-0 as module_zip
+FROM etriasnl/php-extensions:7.4-bullseye-zip-1 as module_zip
 
 FROM php:7.4.30-fpm AS php
 
