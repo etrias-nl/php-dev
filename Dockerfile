@@ -18,6 +18,7 @@ FROM etriasnl/php-extensions:7.4-bullseye-redis-5.3.4 as module_redis
 FROM etriasnl/php-extensions:7.4-bullseye-soap-0 as module_soap
 FROM etriasnl/php-extensions:7.4-bullseye-sockets-0 as module_sockets
 FROM etriasnl/php-extensions:7.4-bullseye-xdebug-3.1.2 as module_xdebug
+FROM etriasnl/php-extensions:7.4-bullseye-memprof-3.0.2 as module_memprof
 FROM etriasnl/php-extensions:7.4-bullseye-zip-1 as module_zip
 
 FROM php:7.4.30-fpm AS php
@@ -43,6 +44,7 @@ COPY --from=module_redis /extension/ /extensions/redis
 COPY --from=module_soap /extension/ /extensions/soap
 COPY --from=module_sockets /extension/ /extensions/sockets
 COPY --from=module_xdebug /extension/ /extensions/xdebug
+COPY --from=module_memprof /extension/ /extensions/memprof
 COPY --from=module_zip /extension/ /extensions/zip
 
 RUN /extensions/apcu/install.sh \
@@ -61,6 +63,7 @@ RUN /extensions/apcu/install.sh \
     && /extensions/soap/install.sh \
     && /extensions/sockets/install.sh \
     && /extensions/xdebug/install.sh \
+    && /extensions/memprof/install.sh \
     && /extensions/zip/install.sh \
     && rm -rf /extensions
 
@@ -83,7 +86,8 @@ RUN wget -qO /usr/bin/phpunit.phar 'https://phar.phpunit.de/phpunit-9.phar' && c
 
 RUN echo "source /etc/profile.d/bash_completion.sh" >> /root/.bashrc \
     && echo "alias ll='ls -alF --group-directories-first --color=auto'" >> /root/.bashrc \
-    && echo "alias xphp='XDEBUG_TRIGGER=PHPSTORM php'" >> /root/.bashrc
+    && echo "alias xphp='XDEBUG_TRIGGER=PHPSTORM php'" >> /root/.bashrc \
+    && echo "alias memprofphp='MEMPROF_PROFILE=1 php'" >> /root/.bashrc
 
 # hadolint ignore=DL4006
 RUN composer completion bash | tee /etc/bash_completion.d/composer
