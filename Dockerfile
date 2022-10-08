@@ -19,6 +19,7 @@ FROM etriasnl/php-extensions:7.4-bullseye-soap-0 as module_soap
 FROM etriasnl/php-extensions:7.4-bullseye-sockets-0 as module_sockets
 FROM etriasnl/php-extensions:7.4-bullseye-xdebug-3.1.2 as module_xdebug
 FROM etriasnl/php-extensions:7.4-bullseye-memprof-3.0.2 as module_memprof
+FROM etriasnl/php-extensions:7.4-bullseye-meminfo-1.1.1 as module_meminfo
 FROM etriasnl/php-extensions:7.4-bullseye-zip-1 as module_zip
 
 FROM php:7.4.30-fpm AS php
@@ -45,6 +46,7 @@ COPY --from=module_soap /extension/ /extensions/soap
 COPY --from=module_sockets /extension/ /extensions/sockets
 COPY --from=module_xdebug /extension/ /extensions/xdebug
 COPY --from=module_memprof /extension/ /extensions/memprof
+COPY --from=module_meminfo /extension/ /extensions/meminfo
 COPY --from=module_zip /extension/ /extensions/zip
 
 RUN /extensions/apcu/install.sh \
@@ -64,6 +66,7 @@ RUN /extensions/apcu/install.sh \
     && /extensions/sockets/install.sh \
     && /extensions/xdebug/install.sh \
     && /extensions/memprof/install.sh \
+    && /extensions/meminfo/install.sh \
     && /extensions/zip/install.sh \
     && rm -rf /extensions
 
