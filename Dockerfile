@@ -13,6 +13,7 @@ FROM etriasnl/php-extensions:7.4-bullseye-igbinary-3.2.6 as module_igbinary
 FROM etriasnl/php-extensions:7.4-bullseye-imap-0 as module_imap
 FROM etriasnl/php-extensions:7.4-bullseye-intl-0 as module_intl
 FROM etriasnl/php-extensions:7.4-bullseye-opcache-0 as module_opcache
+FROM etriasnl/php-extensions:7.4-bullseye-pcntl-0 as module_pcntl
 FROM etriasnl/php-extensions:7.4-bullseye-pdo_mysql-0 as module_pdo_mysql
 FROM etriasnl/php-extensions:7.4-bullseye-redis-5.3.4 as module_redis
 FROM etriasnl/php-extensions:7.4-bullseye-soap-0 as module_soap
@@ -40,6 +41,7 @@ COPY --from=module_igbinary /extension/ /extensions/igbinary
 COPY --from=module_imap /extension/ /extensions/imap
 COPY --from=module_intl /extension/ /extensions/intl
 COPY --from=module_opcache /extension/ /extensions/opcache
+COPY --from=module_pcntl /extension/ /extensions/pcntl
 COPY --from=module_pdo_mysql /extension/ /extensions/pdo_mysql
 COPY --from=module_redis /extension/ /extensions/redis
 COPY --from=module_soap /extension/ /extensions/soap
@@ -60,6 +62,7 @@ RUN /extensions/apcu/install.sh \
     && /extensions/imap/install.sh \
     && /extensions/intl/install.sh \
     && /extensions/opcache/install.sh \
+    && /extensions/pcntl/install.sh \
     && /extensions/pdo_mysql/install.sh \
     && /extensions/redis/install.sh \
     && /extensions/soap/install.sh \
