@@ -82,7 +82,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
     libdbi-perl libdbd-mysql-perl \
     && rm -rf /var/lib/apt/lists/*
 
-RUN wget -qO /usr/bin/composer-normalize 'https://github.com/ergebnis/composer-normalize/releases/latest/download/composer-normalize.phar' && chmod +x /usr/bin/composer-normalize
+RUN wget -qO /usr/bin/composer-normalize 'https://github.com/ergebnis/composer-normalize/releases/download/2.28.3/composer-normalize.phar' && chmod +x /usr/bin/composer-normalize
 RUN wget -qO /usr/bin/composer-unused 'https://github.com/composer-unused/composer-unused/releases/latest/download/composer-unused.phar' && chmod +x /usr/bin/composer-unused
 RUN wget -qO /usr/bin/psalm 'https://github.com/vimeo/psalm/releases/latest/download/psalm.phar' && chmod +x /usr/bin/psalm
 RUN wget -qO /usr/bin/php-cs-fixer 'https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/latest/download/php-cs-fixer.phar' && chmod +x /usr/bin/php-cs-fixer
