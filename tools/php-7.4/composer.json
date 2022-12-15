@@ -1,0 +1,16 @@
+{
+    "require": {
+        "php": "^7.4",
+        "vimeo/psalm": "^5.2",
+        "ergebnis/composer-normalize": "^2.28.3",
+        "maglnet/composer-require-checker": "^3.8",
+        "icanhazstring/composer-unused": "^0.8.5",
+        "friendsofphp/php-cs-fixer": "^3.13",
+        "phpunit/phpunit": "^9.5.27"
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true
+        }
+    }
+}

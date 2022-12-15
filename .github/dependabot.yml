@@ -1,6 +1,20 @@
 version: 2
 updates:
     -
+        package-ecosystem: "composer"
+        directory: "/tools/php-7.4"
+        schedule:
+            interval: "daily"
+        assignees:
+            - "ro0NL"
+    -
+        package-ecosystem: "composer"
+        directory: "/tools/php-8.1"
+        schedule:
+            interval: "daily"
+        assignees:
+            - "ro0NL"
+    -
         package-ecosystem: "docker"
         directory: "/"
         schedule:
