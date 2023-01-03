@@ -25,3 +25,11 @@ release: lint
 publish: release
 	docker push "${PHP_TAG}"
 	docker push "${PHP_NODE_TAG}"
+
+# upcoming version 8.1
+
+81-composer-update: DOCKERFILE=Dockerfile_81
+81-composer-update: composer-update
+
+81-publish: DOCKERFILE=Dockerfile_81
+81-publish: publish
