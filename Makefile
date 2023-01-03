@@ -12,8 +12,13 @@ MAKEFLAGS += --warn-undefined-variables --always-make
 PHP_TAG=${DOCKER_IMAGE}:${PHP_VERSION}-${PATCH_VERSION}
 PHP_NODE_TAG=${PHP_TAG}-node-${NODE_VERSION}
 
+exec_docker=docker run -it --rm -v "$(shell pwd):/app" -w /app
+
+composer-update:
+	${exec_docker} composer update --working-dir="tools/php-${PHP_VERSION_MAJOR}.${PHP_VERSION_MINOR}"
+	${exec_docker} composer bump --working-dir="tools/php-${PHP_VERSION_MAJOR}.${PHP_VERSION_MINOR}"
 lint:
-	docker run -it --rm -v "$(shell pwd):/app" -w /app hadolint/hadolint hadolint --ignore DL3059 "${DOCKERFILE}"
+	${exec_docker} hadolint/hadolint hadolint --ignore DL3059 "${DOCKERFILE}"
 release: lint
 	docker buildx build --progress "${DOCKER_PROGRESS}" --target php -f "${DOCKERFILE}" -t "${PHP_TAG}" --load .
 	docker buildx build --progress "${DOCKER_PROGRESS}" --target php_node -f "${DOCKERFILE}" -t "${PHP_NODE_TAG}" --load .
