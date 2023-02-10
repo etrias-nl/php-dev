@@ -25,6 +25,8 @@ release: lint
 publish: release
 	docker push "${PHP_TAG}"
 	docker push "${PHP_NODE_TAG}"
+	git tag "${PHP_VERSION}-${PATCH_VERSION}"
+	git push --tags
 
 # upcoming version 8.1
 
