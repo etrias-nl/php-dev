@@ -6,7 +6,7 @@
         "maglnet/composer-require-checker": "^4.5",
         "icanhazstring/composer-unused": "^0.8.6",
         "friendsofphp/php-cs-fixer": "^3.14.3",
-        "phpunit/phpunit": "^9.6.3"
+        "phpunit/phpunit": "^10.0.7"
     },
     "config": {
         "allow-plugins": {
