@@ -14,9 +14,12 @@ PHP_NODE_TAG=${PHP_TAG}-node-${NODE_VERSION}
 
 exec_docker=docker run -it --rm -v "$(shell pwd):/app" -w /app
 
-composer-update:
-	${exec_docker} composer update --working-dir="tools/php-${PHP_VERSION_MAJOR}.${PHP_VERSION_MINOR}"
-	${exec_docker} composer bump --working-dir="tools/php-${PHP_VERSION_MAJOR}.${PHP_VERSION_MINOR}"
+composer-cli:
+	${exec_docker} composer bash
+bump-tools:
+	${exec_docker} composer --working-dir="tools/php-${PHP_VERSION_MAJOR}.${PHP_VERSION_MINOR}" update
+	${exec_docker} composer --working-dir="tools/php-${PHP_VERSION_MAJOR}.${PHP_VERSION_MINOR}" bump
+	${exec_docker} composer --working-dir="tools/php-${PHP_VERSION_MAJOR}.${PHP_VERSION_MINOR}" normalize
 lint:
 	${exec_docker} hadolint/hadolint hadolint --ignore DL3059 "${DOCKERFILE}"
 release: lint
@@ -30,8 +33,8 @@ publish: release
 
 # upcoming version 8.1
 
-81-composer-update: DOCKERFILE=Dockerfile_81
-81-composer-update: composer-update
+81-bump-tools: DOCKERFILE=Dockerfile_81
+81-bump-tools: bump-tools
 
 81-publish: DOCKERFILE=Dockerfile_81
 81-publish: publish
