@@ -1,7 +1,7 @@
 {
     "require": {
         "php": "^7.4",
-        "vimeo/psalm": "^5.7.1",
+        "vimeo/psalm": "^5.7.3",
         "ergebnis/composer-normalize": "^2.28.3",
         "maglnet/composer-require-checker": "^3.8",
         "icanhazstring/composer-unused": "^0.8.6",
