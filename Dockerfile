@@ -75,6 +75,7 @@ RUN /extensions/apcu/install.sh \
 
 # hadolint ignore=DL3008
 RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
+    procps \
     libpng-dev \
     dnsutils iputils-ping lsof net-tools \
     git vim nano curl wget bash-completion \
