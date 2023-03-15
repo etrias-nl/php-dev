@@ -78,7 +78,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
     procps \
     dnsutils iputils-ping lsof net-tools \
     git vim nano curl wget bash-completion \
-    s3cmd \
     libdbi-perl libdbd-mysql-perl \
     && rm -rf /var/lib/apt/lists/*
 
