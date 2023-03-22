@@ -1,5 +1,5 @@
 FROM node:16.19.1-slim as node
-FROM composer:2.5.4 as composer
+FROM composer:2.5.5 as composer
 FROM stephenc/envsub:0.1.3 as envsub
 FROM etriasnl/percona-toolkit:3.3.1 as pt_toolkit
 FROM etriasnl/php-extensions:7.4-bullseye-apcu-5.1.21 as module_apcu
