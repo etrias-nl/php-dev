@@ -25,6 +25,9 @@ FROM etriasnl/php-extensions:7.4-bullseye-zip-1 as module_zip
 
 FROM php:7.4.33-fpm AS php
 
+ENV COMPOSER_ALLOW_SUPERUSER=1
+ENV COMPOSER_HOME=/app/var/composer
+
 RUN useradd -ms /bin/bash --uid 1500 symfony
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
@@ -92,7 +95,8 @@ RUN composer completion bash | tee /etc/bash_completion.d/composer
 COPY php-ini/* /usr/local/etc/php/conf.d/
 COPY tools/php-7.4 /usr/local/etc/tools
 
-RUN composer install --working-dir=/usr/local/etc/tools
+RUN --mount=type=cache,target=/app/var/composer \
+    composer install --prefer-dist --no-progress --optimize-autoloader --working-dir=/usr/local/etc/tools
 ENV PATH="${PATH}:/usr/local/etc/tools/vendor/bin"
 
 RUN mkdir -m777 /var/okteto
@@ -108,4 +112,4 @@ COPY --from=node /opt/yarn* /opt/yarn
 RUN ln -s /usr/lib/node_modules/npm/bin/npm-cli.js /usr/bin/npm && \
     ln -s /usr/lib/node_modules/npm/bin/npx-cli.js /usr/bin/npx && \
     ln -s /opt/yarn/bin/yarn.js /usr/bin/yarn && \
-    yarn config set cache-folder /yarn/cache
+    yarn config set cache-folder /app/var/yarn-cache
