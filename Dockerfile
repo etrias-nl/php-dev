@@ -76,7 +76,6 @@ RUN /extensions/apcu/install.sh \
     && /extensions/zip/install.sh \
     && rm -rf /extensions
 
-# hadolint ignore=DL3008
 RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
     procps \
     dnsutils iputils-ping lsof net-tools \
