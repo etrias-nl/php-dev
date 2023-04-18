@@ -1,6 +1,7 @@
 FROM node:16.20.0-slim as node
 FROM composer:2.5.5 as composer
 FROM stephenc/envsub:0.1.3 as envsub
+FROM mlocati/php-extension-installer:2.1.10 as php_ext_installer
 FROM etriasnl/percona-toolkit:3.3.1 as pt_toolkit
 FROM etriasnl/php-extensions:8.1-bullseye-apcu-5.1.21 as module_apcu
 FROM etriasnl/php-extensions:8.1-bullseye-bcmath-0 as module_bcmath
@@ -13,7 +14,6 @@ FROM etriasnl/php-extensions:8.1-bullseye-igbinary-3.2.6 as module_igbinary
 FROM etriasnl/php-extensions:8.1-bullseye-imap-0 as module_imap
 FROM etriasnl/php-extensions:8.1-bullseye-intl-0 as module_intl
 FROM etriasnl/php-extensions:8.1-bullseye-opcache-0 as module_opcache
-FROM etriasnl/php-extensions:8.1-bullseye-pdo_mysql-0 as module_pdo_mysql
 FROM etriasnl/php-extensions:8.1-bullseye-redis-5.3.4 as module_redis
 FROM etriasnl/php-extensions:8.1-bullseye-soap-0 as module_soap
 FROM etriasnl/php-extensions:8.1-bullseye-sockets-0 as module_sockets
@@ -42,7 +42,6 @@ COPY --from=module_igbinary /extension/ /extensions/igbinary
 COPY --from=module_imap /extension/ /extensions/imap
 COPY --from=module_intl /extension/ /extensions/intl
 COPY --from=module_opcache /extension/ /extensions/opcache
-COPY --from=module_pdo_mysql /extension/ /extensions/pdo_mysql
 COPY --from=module_redis /extension/ /extensions/redis
 COPY --from=module_soap /extension/ /extensions/soap
 COPY --from=module_sockets /extension/ /extensions/sockets
@@ -61,7 +60,6 @@ RUN /extensions/apcu/install.sh \
     && /extensions/imap/install.sh \
     && /extensions/intl/install.sh \
     && /extensions/opcache/install.sh \
-    && /extensions/pdo_mysql/install.sh \
     && /extensions/redis/install.sh \
     && /extensions/soap/install.sh \
     && /extensions/sockets/install.sh \
@@ -69,11 +67,16 @@ RUN /extensions/apcu/install.sh \
     && /extensions/zip/install.sh \
     && /extensions/xsl/install.sh
 
+COPY --from=php_ext_installer /usr/bin/install-php-extensions /usr/bin/install-php-extensions
+
+RUN install-php-extensions \
+    pdo_mysql \
+    && rm /usr/bin/install-php-extensions
+
 RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
     procps \
     dnsutils iputils-ping lsof net-tools \
     git vim nano curl wget bash-completion \
-    libdbi-perl libdbd-mysql-perl \
     && rm -rf /var/lib/apt/lists/*
 
 RUN echo "source /etc/profile.d/bash_completion.sh" >> /root/.bashrc \
