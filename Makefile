@@ -20,7 +20,7 @@ composer-update:
 lint-yaml:
 	${exec_docker} cytopia/yamllint .
 lint-dockerfile:
-	${exec_docker} hadolint/hadolint hadolint --ignore DL3008 --ignore DL3059 Dockerfile
+	${exec_docker} hadolint/hadolint hadolint --ignore DL3008 --ignore DL3059 "${DOCKERFILE}"
 lint: lint-yaml lint-dockerfile
 
 # @deprecated see other dockerfile repos, needs single version per branch first
