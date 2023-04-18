@@ -98,12 +98,6 @@ RUN --mount=type=cache,target=/app/var/composer \
     composer install --prefer-dist --no-progress --optimize-autoloader --working-dir=/usr/local/etc/tools
 ENV PATH="${PATH}:/usr/local/etc/tools/vendor/bin"
 
-RUN mkdir -m777 /var/okteto
-
-WORKDIR /app
-
-FROM php as php_node
-
 COPY --from=node /usr/local/bin/node /usr/bin/node
 COPY --from=node /usr/local/lib/node_modules /usr/lib/node_modules
 COPY --from=node /opt/yarn* /opt/yarn
@@ -112,3 +106,7 @@ RUN ln -s /usr/lib/node_modules/npm/bin/npm-cli.js /usr/bin/npm && \
     ln -s /usr/lib/node_modules/npm/bin/npx-cli.js /usr/bin/npx && \
     ln -s /opt/yarn/bin/yarn.js /usr/bin/yarn && \
     yarn config set cache-folder /app/var/yarn-cache
+
+RUN mkdir -m777 /var/okteto
+
+WORKDIR /app
