@@ -1,6 +1,9 @@
 MAKEFLAGS += --warn-undefined-variables --always-make
 .DEFAULT_GOAL := _
 
+IMAGE=$(shell docker run -i --rm mikefarah/yq '.env.DOCKER_IMAGE' < .github/workflows/publish.yaml)
+IMAGE_TAG=${IMAGE}:$(shell git describe --tags)
+
 DOCKERFILE?=Dockerfile
 DOCKER_IMAGE=etriasnl/dev-php-fpm
 PHP_VERSION=$(shell cat "${DOCKERFILE}" | grep 'FROM php:' | cut -f2 -d':' | cut -f1 -d '-')
@@ -22,6 +25,9 @@ lint-yaml:
 lint-dockerfile:
 	${exec_docker} hadolint/hadolint hadolint --ignore DL3008 --ignore DL3059 "${DOCKERFILE}"
 lint: lint-yaml lint-dockerfile
+clean:
+	docker rm $(shell docker ps -aq -f "ancestor=${IMAGE_TAG}") --force || true
+	docker rmi $(shell docker images -q "${IMAGE}") --force || true
 
 # @deprecated see other dockerfile repos, needs single version per branch first
 release: lint
