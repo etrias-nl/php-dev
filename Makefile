@@ -2,7 +2,7 @@ MAKEFLAGS += --warn-undefined-variables --always-make
 .DEFAULT_GOAL := _
 
 IMAGE=$(shell docker run -i --rm mikefarah/yq '.env.DOCKER_IMAGE' < .github/workflows/publish.yaml)
-IMAGE_TAG=${IMAGE}:$(shell git describe --tags)
+IMAGE_TAG=${IMAGE}:$(shell git describe --tags --exact-match || git branch --show-current)
 
 DOCKERFILE?=Dockerfile
 DOCKER_IMAGE=etriasnl/dev-php-fpm

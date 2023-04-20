@@ -1,12 +1,13 @@
 name: Publish
 
 'on':
+    workflow_dispatch:
     push:
         tags:
-            - "*.*.*"
+            - '*.*.*'
 
 env:
-    DOCKER_IMAGE: "etriasnl/dev-php-fpm"
+    DOCKER_IMAGE: etriasnl/dev-php-fpm
 
 jobs:
     publish:
@@ -29,7 +30,7 @@ jobs:
             -
                 uses: docker/build-push-action@v4
                 with:
-#                    push: ${{ github.event_name != 'pull_request' }}
+#                   push: ${{ github.event_name != 'pull_request' && github.ref_type == 'tag' }}
                     push: false
                     tags: ${{ steps.meta.outputs.tags }}
                     labels: ${{ steps.meta.outputs.labels }}
