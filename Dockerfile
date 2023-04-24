@@ -90,16 +90,14 @@ RUN ln -s /usr/lib/node_modules/npm/bin/npm-cli.js /usr/bin/npm && \
     ln -s /opt/yarn/bin/yarn.js /usr/bin/yarn && \
     yarn config set cache-folder /app/var/yarn-cache
 
+COPY php-ini/* /usr/local/etc/php/conf.d/
+
 RUN composer completion bash > /etc/bash_completion.d/composer
 
-RUN echo "source /etc/bash_completion" >> /etc/bash.bashrc
-RUN echo "alias ll='ls -alF --group-directories-first --color=auto'" >> /etc/bash.bashrc
-RUN echo "alias xphp='XDEBUG_TRIGGER=PHPSTORM php'" >> /etc/bash.bashrc
-RUN echo "alias memprofphp='MEMPROF_PROFILE=1 php'" >> /etc/bash.bashrc
+COPY docker/dev.bashrc /var/
+RUN echo ". /var/dev.bashrc" >> /etc/bash.bashrc
 
-COPY php-ini/* /usr/local/etc/php/conf.d/
 COPY tools/php-7.4 /usr/local/etc/tools
-
 RUN --mount=type=cache,target=/app/var/composer \
     composer install --prefer-dist --no-progress --optimize-autoloader --working-dir=/usr/local/etc/tools
 ENV PATH="${PATH}:/usr/local/etc/tools/vendor/bin"
