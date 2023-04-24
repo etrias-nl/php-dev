@@ -11,7 +11,7 @@ PHP_VERSION_MINOR=$(shell echo "${PHP_VERSION}" | cut -f2 -d '.')
 PATCH_VERSION=$$(($(shell curl -sS "https://hub.docker.com/v2/repositories/${IMAGE}/tags/?page_size=1&page=1&name=${PHP_VERSION_MAJOR}.${PHP_VERSION_MINOR}.&ordering=last_updated" | jq -r '.results[0].name' | cut -f2 -d '-') + 1))
 PHP_TAG=${IMAGE}:${PHP_VERSION}-${PATCH_VERSION}
 
-exec_docker=docker run $(shell [ "$$CI" = true ] && echo "-t" || echo "-it") -u "$(shell id -u):$(shell id -g)" -e CI --rm -v "$(shell pwd):/app" -w /app
+exec_docker=docker run $(shell [ "$$CI" = true ] && echo "-t" || echo "-it") -e CI -u "$(shell id -u):$(shell id -g)" --rm -v "$(shell pwd):/app" -w /app
 
 composer-cli:
 	${exec_docker} composer bash

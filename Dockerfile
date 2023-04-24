@@ -92,13 +92,12 @@ RUN ln -s /usr/lib/node_modules/npm/bin/npm-cli.js /usr/bin/npm && \
     ln -s /opt/yarn/bin/yarn.js /usr/bin/yarn && \
     yarn config set cache-folder /app/var/yarn-cache
 
-RUN echo "source /etc/profile.d/bash_completion.sh" >> /root/.bashrc \
-    && echo "alias ll='ls -alF --group-directories-first --color=auto'" >> /root/.bashrc \
-    && echo "alias xphp='XDEBUG_TRIGGER=PHPSTORM php'" >> /root/.bashrc \
-    && echo "alias memprofphp='MEMPROF_PROFILE=1 php'" >> /root/.bashrc
+RUN composer completion bash > /etc/bash_completion.d/composer
 
-# hadolint ignore=DL4006
-RUN composer completion bash | tee /etc/bash_completion.d/composer
+RUN echo "source /etc/bash_completion" >> /etc/bash.bashrc
+RUN echo "alias ll='ls -alF --group-directories-first --color=auto'" >> /etc/bash.bashrc
+RUN echo "alias xphp='XDEBUG_TRIGGER=PHPSTORM php'" >> /etc/bash.bashrc
+RUN echo "alias memprofphp='MEMPROF_PROFILE=1 php'" >> /etc/bash.bashrc
 
 COPY php-ini/* /usr/local/etc/php/conf.d/
 COPY tools/php-7.4 /usr/local/etc/tools
