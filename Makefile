@@ -24,14 +24,16 @@ lint-yaml:
 lint-dockerfile:
 	${exec_docker} hadolint/hadolint hadolint --ignore DL3008 --ignore DL3059 "${DOCKERFILE}"
 lint: lint-yaml lint-dockerfile
+build: lint
+	docker buildx build --file "${DOCKERFILE}" --load --tag "${PHP_TAG}" .
+cli: clean build
+	docker exec -it "$(shell docker run -it -d "${PHP_TAG}")" bash
 clean:
 	docker rm $(shell docker ps -aq -f "ancestor=${IMAGE_TAG}") --force || true
 	docker rmi $(shell docker images -q "${IMAGE}") --force || true
 
 # @deprecated see other dockerfile repos, needs single version per branch first
-release: lint
-	docker buildx build --file "${DOCKERFILE}" --load --tag "${PHP_TAG}" .
-publish: release
+publish: build
 	docker push "${PHP_TAG}"
 	git tag "${PHP_VERSION}-${PATCH_VERSION}"
 	git push --tags
@@ -42,8 +44,11 @@ publish: release
 81-composer-update: DOCKERFILE=Dockerfile_81
 81-composer-update: composer-update
 
-81-release: DOCKERFILE=Dockerfile_81
-81-release: release
+81-build: DOCKERFILE=Dockerfile_81
+81-build: build
+
+81-cli: DOCKERFILE=Dockerfile_81
+81-cli: cli
 
 81-publish: DOCKERFILE=Dockerfile_81
 81-publish: publish
