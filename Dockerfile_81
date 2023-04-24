@@ -96,6 +96,4 @@ RUN --mount=type=cache,target=/app/var/composer \
     composer install --prefer-dist --no-progress --optimize-autoloader --working-dir=/usr/local/etc/tools
 ENV PATH="${PATH}:/usr/local/etc/tools/vendor/bin"
 
-#RUN mkdir -m777 /var/okteto
-
 WORKDIR /app
