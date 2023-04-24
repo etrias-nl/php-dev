@@ -83,6 +83,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
     libdbi-perl libdbd-mysql-perl \
     && rm -rf /var/lib/apt/lists/*
 
+COPY --from=node /usr/local/bin/node /usr/bin/node
+COPY --from=node /usr/local/lib/node_modules /usr/lib/node_modules
+COPY --from=node /opt/yarn* /opt/yarn
+
+RUN ln -s /usr/lib/node_modules/npm/bin/npm-cli.js /usr/bin/npm && \
+    ln -s /usr/lib/node_modules/npm/bin/npx-cli.js /usr/bin/npx && \
+    ln -s /opt/yarn/bin/yarn.js /usr/bin/yarn && \
+    yarn config set cache-folder /app/var/yarn-cache
+
 RUN echo "source /etc/profile.d/bash_completion.sh" >> /root/.bashrc \
     && echo "alias ll='ls -alF --group-directories-first --color=auto'" >> /root/.bashrc \
     && echo "alias xphp='XDEBUG_TRIGGER=PHPSTORM php'" >> /root/.bashrc \
@@ -97,15 +106,6 @@ COPY tools/php-7.4 /usr/local/etc/tools
 RUN --mount=type=cache,target=/app/var/composer \
     composer install --prefer-dist --no-progress --optimize-autoloader --working-dir=/usr/local/etc/tools
 ENV PATH="${PATH}:/usr/local/etc/tools/vendor/bin"
-
-COPY --from=node /usr/local/bin/node /usr/bin/node
-COPY --from=node /usr/local/lib/node_modules /usr/lib/node_modules
-COPY --from=node /opt/yarn* /opt/yarn
-
-RUN ln -s /usr/lib/node_modules/npm/bin/npm-cli.js /usr/bin/npm && \
-    ln -s /usr/lib/node_modules/npm/bin/npx-cli.js /usr/bin/npx && \
-    ln -s /opt/yarn/bin/yarn.js /usr/bin/yarn && \
-    yarn config set cache-folder /app/var/yarn-cache
 
 RUN mkdir -m777 /var/okteto
 

@@ -42,5 +42,8 @@ publish: release
 81-composer-update: DOCKERFILE=Dockerfile_81
 81-composer-update: composer-update
 
+81-release: DOCKERFILE=Dockerfile_81
+81-release: release
+
 81-publish: DOCKERFILE=Dockerfile_81
 81-publish: publish
