@@ -28,8 +28,6 @@ FROM php:7.4.33-fpm AS php
 ENV COMPOSER_ALLOW_SUPERUSER=1
 ENV COMPOSER_HOME=/app/var/composer
 
-RUN useradd -ms /bin/bash --uid 1500 symfony
-
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 COPY --from=envsub /bin/envsub /usr/bin/
 COPY --from=pt_toolkit /usr/local/bin/pt-online-schema-change /usr/bin/
