@@ -65,7 +65,8 @@ RUN /extensions/apcu/install.sh \
     && /extensions/sockets/install.sh \
     && /extensions/xdebug/install.sh \
     && /extensions/zip/install.sh \
-    && /extensions/xsl/install.sh
+    && /extensions/xsl/install.sh \
+    && rm -rf /extensions
 
 RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
     procps \
