@@ -1,3 +1,4 @@
+# @deprecated use PHP8
 FROM node:16.20.0-slim as node
 FROM composer:2.5.5 as composer
 FROM stephenc/envsub:0.1.3 as envsub
