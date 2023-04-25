@@ -95,8 +95,8 @@ COPY php-ini/* /usr/local/etc/php/conf.d/
 
 RUN composer completion bash > /etc/bash_completion.d/composer
 
-COPY docker/dev.bashrc /var/
-RUN echo ". /var/dev.bashrc" >> /etc/bash.bashrc
+COPY docker/dev.bashrc /usr/local/etc/
+RUN echo ". /usr/local/etc/dev.bashrc" >> /etc/bash.bashrc
 
 COPY tools/php-7.4 /usr/local/etc/tools
 RUN --mount=type=cache,target=/app/var/composer \
