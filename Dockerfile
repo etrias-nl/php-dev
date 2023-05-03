@@ -91,7 +91,7 @@ RUN ln -s /usr/lib/node_modules/npm/bin/npm-cli.js /usr/bin/npm && \
     ln -s /usr/lib/node_modules/npm/bin/npx-cli.js /usr/bin/npx && \
     ln -s /opt/yarn/bin/yarn.js /usr/bin/yarn && \
     yarn config set cache-folder /app/var/yarn-cache && \
-    ln -s /usr/local/share/.yarnrc /.yarnrc
+    chmod 777 /usr/local/share/.yarnrc && ln -s /usr/local/share/.yarnrc /.yarnrc
 
 COPY php-ini/* /usr/local/etc/php/conf.d/
 
