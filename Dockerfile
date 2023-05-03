@@ -24,7 +24,7 @@ FROM etriasnl/php-extensions:7.4-bullseye-memprof-3.0.2 as module_memprof
 FROM etriasnl/php-extensions:7.4-bullseye-meminfo-1.1.1 as module_meminfo
 FROM etriasnl/php-extensions:7.4-bullseye-zip-1 as module_zip
 
-FROM php:7.4.33-fpm AS php
+FROM php:8.2.5-fpm AS php
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 ENV COMPOSER_HOME=/app/var/composer

@@ -21,7 +21,7 @@ FROM etriasnl/php-extensions:8.1-bullseye-xdebug-3.1.2 as module_xdebug
 FROM etriasnl/php-extensions:8.1-bullseye-zip-1 as module_zip
 FROM etriasnl/php-extensions:8.1-bullseye-xsl-0 as module_xsl
 
-FROM php:8.1.13-fpm AS php
+FROM php:8.2.5-fpm AS php
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 ENV COMPOSER_HOME=/app/var/composer
