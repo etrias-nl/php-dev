@@ -90,7 +90,8 @@ COPY --from=node /opt/yarn* /opt/yarn
 RUN ln -s /usr/lib/node_modules/npm/bin/npm-cli.js /usr/bin/npm && \
     ln -s /usr/lib/node_modules/npm/bin/npx-cli.js /usr/bin/npx && \
     ln -s /opt/yarn/bin/yarn.js /usr/bin/yarn && \
-    yarn config set cache-folder /app/var/yarn-cache
+    yarn config set cache-folder /app/var/yarn-cache && \
+    ln -s /usr/local/share/.yarnrc /.yarnrc
 
 COPY php-ini/* /usr/local/etc/php/conf.d/
 
