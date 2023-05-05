@@ -1,5 +1,5 @@
 # @deprecated use PHP8
-FROM node:16.20.0-slim as node
+FROM node:20.1.0-slim as node
 FROM composer:2.5.5 as composer
 FROM stephenc/envsub:0.1.3 as envsub
 FROM etriasnl/percona-toolkit:3.3.1-7 as pt_toolkit
