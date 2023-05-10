@@ -36,7 +36,7 @@ clean:
 publish: build
 	@[ "$$(git status --porcelain)" ] && echo "Commit your changes" && exit 1 || true
 	@[ "$$(git log --branches --not --remotes)" ] && echo "Push your commits" && exit 1 || true
-	@git describe --tags --abbrev=0 --exact-match && echo "Commit already tagged" && exit 1 || true
+	@[ "$$(git describe --tags --abbrev=0 --exact-match)" ] && echo "Commit already tagged" && exit 1 || true
 	docker push "${PHP_TAG}"
 	git tag "${PHP_VERSION}-${PATCH_VERSION}"
 	git push --tags
