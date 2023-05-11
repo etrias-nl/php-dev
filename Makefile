@@ -2,7 +2,7 @@ MAKEFLAGS += --warn-undefined-variables --always-make
 .DEFAULT_GOAL := _
 
 IMAGE=$(shell docker run -i --rm mikefarah/yq '.env.DOCKER_IMAGE' < .github/workflows/publish.yaml)
-IMAGE_TAG=${IMAGE}:$(shell git describe --tags --exact-match || git branch --show-current)
+IMAGE_TAG=${IMAGE}:$(shell git describe --tags --exact-match || git symbolic-ref --short HEAD || git rev-parse --short HEAD)
 
 DOCKERFILE?=Dockerfile
 PHP_VERSION=$(shell cat "${DOCKERFILE}" | grep 'FROM php:' | cut -f2 -d':' | cut -f1 -d '-')
