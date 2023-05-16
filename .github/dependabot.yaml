@@ -3,20 +3,26 @@ updates:
     -
         package-ecosystem: "composer"
         directory: "/tools/php-7.4"
+        rebase-strategy: "auto"
+        versioning-strategy: "increase"
         schedule:
             interval: "daily"
     -
         package-ecosystem: "composer"
         directory: "/tools/php-8.1"
+        rebase-strategy: "auto"
+        versioning-strategy: "increase"
         schedule:
             interval: "daily"
     -
         package-ecosystem: "docker"
         directory: "/"
+        rebase-strategy: "auto"
         schedule:
             interval: "daily"
     -
         package-ecosystem: "github-actions"
         directory: "/"
+        rebase-strategy: "auto"
         schedule:
             interval: "daily"
