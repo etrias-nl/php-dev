@@ -2,7 +2,7 @@
     "require": {
         "php": "^8.1",
         "ergebnis/composer-normalize": "^2.31.0",
-        "friendsofphp/php-cs-fixer": "^3.16.0",
+        "friendsofphp/php-cs-fixer": "^3.17.0",
         "icanhazstring/composer-unused": "^0.8.8",
         "maglnet/composer-require-checker": "^4.6",
         "overtrue/phplint": "^9.0.4",
