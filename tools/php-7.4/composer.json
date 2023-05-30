@@ -3,7 +3,7 @@
         "php": "^7.4",
         "ergebnis/composer-normalize": "^2.28.3",
         "friendsofphp/php-cs-fixer": "^3.17.0",
-        "icanhazstring/composer-unused": "^0.8.8",
+        "icanhazstring/composer-unused": "^0.8.9",
         "maglnet/composer-require-checker": "^3.8",
         "overtrue/phplint": "^3.4",
         "phpunit/phpunit": "^9.6.8",
