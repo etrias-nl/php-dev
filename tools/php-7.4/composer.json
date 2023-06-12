@@ -6,7 +6,7 @@
         "icanhazstring/composer-unused": "^0.8.9",
         "maglnet/composer-require-checker": "^3.8",
         "overtrue/phplint": "^3.4",
-        "phpunit/phpunit": "^9.6.8",
+        "phpunit/phpunit": "^9.6.9",
         "rector/rector": "^0.17",
         "vimeo/psalm": "^5.12.0"
     },
