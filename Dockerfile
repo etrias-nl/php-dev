@@ -102,7 +102,8 @@ RUN echo ". /usr/local/etc/dev.bashrc" >> /etc/bash.bashrc
 
 COPY tools/php-7.4 /usr/local/etc/tools
 RUN --mount=type=cache,target=/app/var/composer \
-    composer install --prefer-dist --no-progress --optimize-autoloader --working-dir=/usr/local/etc/tools
+    composer install --prefer-dist --no-progress --optimize-autoloader --working-dir=/usr/local/etc/tools && \
+    mv /usr/local/etc/tools/vendor/bin/psalm.phar /usr/local/etc/tools/vendor/bin/psalm
 ENV PATH="${PATH}:/usr/local/etc/tools/vendor/bin"
 
 WORKDIR /app
