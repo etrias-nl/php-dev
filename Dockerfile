@@ -100,10 +100,14 @@ RUN composer completion bash > /etc/bash_completion.d/composer
 COPY docker/dev.bashrc /usr/local/etc/
 RUN echo ". /usr/local/etc/dev.bashrc" >> /etc/bash.bashrc
 
+ENV PATH="${PATH}:/usr/local/etc/tools/vendor/bin"
 COPY tools/php-7.4 /usr/local/etc/tools
 RUN --mount=type=cache,target=/app/var/composer \
-    composer install --prefer-dist --no-progress --optimize-autoloader --working-dir=/usr/local/etc/tools && \
-    mv /usr/local/etc/tools/vendor/bin/psalm.phar /usr/local/etc/tools/vendor/bin/psalm
-ENV PATH="${PATH}:/usr/local/etc/tools/vendor/bin"
+    composer install --prefer-dist --no-progress --optimize-autoloader --working-dir=/usr/local/etc/tools
+
+WORKDIR /usr/local/etc/tools
+
+RUN mv vendor/bin/psalm.phar vendor/bin/psalm
+RUN wget -qO vendor/bin/phpunit "https://phar.phpunit.de/phpunit-$(composer show --locked --self --format=json | jq -r '.requires."phpunit/phpunit"[1:]' | cut -d'.' -f1-2).phar"
 
 WORKDIR /app
