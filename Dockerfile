@@ -78,7 +78,7 @@ RUN /extensions/apcu/install.sh \
 RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
     procps \
     dnsutils iputils-ping lsof net-tools \
-    git vim nano curl wget bash-completion \
+    git vim nano curl wget jq bash-completion \
     libdbi-perl libdbd-mysql-perl \
     clamdscan \
     && rm -rf /var/lib/apt/lists/*

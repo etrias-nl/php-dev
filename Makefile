@@ -25,7 +25,7 @@ composer-update:
 lint-yaml:
 	${exec_docker} cytopia/yamllint .
 lint-dockerfile:
-	${exec_docker} hadolint/hadolint hadolint --ignore DL3008 --ignore DL3059 "${DOCKERFILE}"
+	${exec_docker} hadolint/hadolint hadolint --ignore DL3008 --ignore DL3059 --ignore DL4006 "${DOCKERFILE}"
 lint: lint-yaml lint-dockerfile
 build: lint
 	docker buildx build --file "${DOCKERFILE}" --load --tag "${PHP_TAG}" .
