@@ -16,9 +16,12 @@ exec_docker=docker run $(shell [ "$$CI" = true ] && echo "-t" || echo "-it") -e 
 composer-cli:
 	${exec_docker} composer bash
 composer-update:
-	${exec_docker} composer --working-dir="tools/php-${PHP_VERSION_MAJOR}.${PHP_VERSION_MINOR}" update
-	${exec_docker} composer --working-dir="tools/php-${PHP_VERSION_MAJOR}.${PHP_VERSION_MINOR}" bump
-	${exec_docker} composer --working-dir="tools/php-${PHP_VERSION_MAJOR}.${PHP_VERSION_MINOR}" normalize
+	${exec_docker} composer --working-dir="tools/php-7.4" update
+	${exec_docker} composer --working-dir="tools/php-7.4" bump
+	${exec_docker} composer --working-dir="tools/php-7.4" normalize
+	${exec_docker} composer --working-dir="tools/php-8.1" update
+	${exec_docker} composer --working-dir="tools/php-8.1" bump
+	${exec_docker} composer --working-dir="tools/php-8.1" normalize
 lint-yaml:
 	${exec_docker} cytopia/yamllint .
 lint-dockerfile:
@@ -45,9 +48,6 @@ publish: build
 
 # upcoming version 8.1
 # @deprecated use git branches for future upcoming versions
-
-81-composer-update: DOCKERFILE=Dockerfile_81
-81-composer-update: composer-update
 
 81-build: DOCKERFILE=Dockerfile_81
 81-build: build
