@@ -20,6 +20,7 @@ jobs:
                 uses: ScribeMD/docker-cache@0.3.3
                 with:
                     key: ${{ runner.os }}-docker-${{ hashFiles('Makefile') }}
+                    read-only: true # @todo remove
             -
                 run: make test
             -
