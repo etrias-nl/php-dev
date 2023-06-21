@@ -34,8 +34,23 @@ cli: clean build
 clean:
 	docker rm $(shell docker ps -aq -f "ancestor=${IMAGE_TAG}") --force || true
 	docker rmi $(shell docker images -q "${IMAGE}") --force || true
+test: IMAGE_TAG=php7-tmp-test
+test: PHP_TAG=php7-tmp-test
+test: build
+	docker run --rm "${IMAGE_TAG}" node --version
+	docker run --rm "${IMAGE_TAG}" php -v
+	docker run --rm "${IMAGE_TAG}" php -m
+	docker run --rm "${IMAGE_TAG}" composer --version
+	docker run --rm "${IMAGE_TAG}" composer --working-dir=/usr/local/etc/tools normalize --dry-run
+	docker run --rm "${IMAGE_TAG}" composer-unused --version
+	docker run --rm "${IMAGE_TAG}" composer-require-checker --version
+	docker run --rm "${IMAGE_TAG}" phplint --version
+	docker run --rm "${IMAGE_TAG}" php-cs-fixer --version --version
+	docker run --rm "${IMAGE_TAG}" phpunit --version
+	docker run --rm "${IMAGE_TAG}" psalm --version
+	docker run --rm "${IMAGE_TAG}" rector --version
 
-# @deprecated see other dockerfile repos, needs single version per branch first
+# @deprecated see other dockerfile repos "release" target, needs single version per branch first
 publish: build
 	git fetch --all --prune --tags --prune-tags --force --quiet
 	@[ "$$(git status --porcelain)" ] && echo "Commit your changes" && exit 1 || true
@@ -49,11 +64,13 @@ publish: build
 # upcoming version 8.1
 # @deprecated use git branches for future upcoming versions
 
-81-build: DOCKERFILE=Dockerfile_81
-81-build: build
-
 81-cli: DOCKERFILE=Dockerfile_81
 81-cli: cli
+
+81-test: DOCKERFILE=Dockerfile_81
+81-test: IMAGE_TAG=php8-tmp-test
+81-test: PHP_TAG=php8-tmp-test
+81-test: test
 
 81-publish: DOCKERFILE=Dockerfile_81
 81-publish: publish

@@ -17,4 +17,6 @@ jobs:
                 with:
                     key: ${{ runner.os }}-docker-${{ hashFiles('Makefile') }}
             -
-                run: make lint
+                run: make test
+            -
+                run: 81-test
