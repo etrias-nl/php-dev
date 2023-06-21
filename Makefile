@@ -34,8 +34,8 @@ cli: clean build
 clean:
 	docker rm $(shell docker ps -aq -f "ancestor=${IMAGE_TAG}") --force || true
 	docker rmi $(shell docker images -q "${IMAGE}") --force || true
-test: IMAGE_TAG=php7-tmp-test
-test: PHP_TAG=php7-tmp-test
+test: IMAGE_TAG=php-tmp-test
+test: PHP_TAG=php-tmp-test
 test: build
 	docker run --rm "${IMAGE_TAG}" node --version
 	docker run --rm "${IMAGE_TAG}" php -v
@@ -68,8 +68,6 @@ publish: build
 81-cli: cli
 
 81-test: DOCKERFILE=Dockerfile_81
-81-test: IMAGE_TAG=php8-tmp-test
-81-test: PHP_TAG=php8-tmp-test
 81-test: test
 
 81-publish: DOCKERFILE=Dockerfile_81
