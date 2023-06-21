@@ -23,4 +23,4 @@ jobs:
             -
                 run: make test
             -
-                run: 81-test
+                run: make 81-test
