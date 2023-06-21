@@ -100,7 +100,8 @@ RUN --mount=type=cache,target=/app/var/composer \
 
 WORKDIR /usr/local/etc/tools
 
-RUN mv vendor/bin/psalm.phar vendor/bin/psalm
-RUN wget -qO vendor/bin/phpunit "https://phar.phpunit.de/phpunit-$(composer show --locked --self --format=json | jq -r '.requires."phpunit/phpunit"[1:]' | cut -d'.' -f1-2).phar"
+RUN wget -qO vendor/bin/phpunit.phar "https://phar.phpunit.de/phpunit-$(composer show --locked --self --format=json | jq -r '.requires."phpunit/phpunit"[1:]' | cut -d'.' -f1-2).phar" && chmod +x vendor/bin/phpunit.phar
+RUN ln -sfn phpunit.phar vendor/bin/phpunit
+RUN ln -sfn psalm.phar vendor/bin/psalm
 
 WORKDIR /app
