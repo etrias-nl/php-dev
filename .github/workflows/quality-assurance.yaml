@@ -6,6 +6,10 @@ name: Quality Assurance
     pull_request:
         branches: [ main ]
 
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref_name }}-${{ github.head_ref || github.actor }}
+    cancel-in-progress: true
+
 jobs:
     checks:
         runs-on: ubuntu-latest
