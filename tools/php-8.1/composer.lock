@@ -2212,12 +2212,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/psalm/phar.git",
-                "reference": "7a1a68fba9f84ff37fbd1df6f723d28ab6871059"
+                "reference": "51957c02cdafdb956eb9e9dabae9cbdc968a3beb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psalm/phar/zipball/7a1a68fba9f84ff37fbd1df6f723d28ab6871059",
-                "reference": "7a1a68fba9f84ff37fbd1df6f723d28ab6871059",
+                "url": "https://api.github.com/repos/psalm/phar/zipball/51957c02cdafdb956eb9e9dabae9cbdc968a3beb",
+                "reference": "51957c02cdafdb956eb9e9dabae9cbdc968a3beb",
                 "shasum": ""
             },
             "require": {
@@ -2240,7 +2240,7 @@
                 "issues": "https://github.com/psalm/phar/issues",
                 "source": "https://github.com/psalm/phar/tree/master"
             },
-            "time": "2023-06-21T19:14:11+00:00"
+            "time": "2023-06-22T21:50:42+00:00"
         },
         {
             "name": "psr/cache",
