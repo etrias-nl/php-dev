@@ -1,10 +1,6 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": [
-        "config:base",
-        ":rebaseStalePrs",
-        ":separateMultipleMajorReleases",
-        ":separatePatchReleases"
-    ],
-    "rangeStrategy": "bump"
+        "github>etrias-nl/renovate"
+    ]
 }
