@@ -1,6 +1,6 @@
 {
     "require": {
-        "php": "^7.4",
+        "php": "^8.2.7",
         "ergebnis/composer-normalize": "^2.28.3",
         "friendsofphp/php-cs-fixer": "^3.19.2",
         "icanhazstring/composer-unused": "^0.8.9",
