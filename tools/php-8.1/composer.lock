@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9c6bf7544cf3b16bbe883e3798acc42e",
+    "content-hash": "30bb851d2cd576db115adeee5e9c36c6",
     "packages": [
         {
             "name": "composer-unused/contracts",
@@ -888,16 +888,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v3.19.2",
+            "version": "v3.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-                "reference": "210dd89560edb27a8e0d5086b734ac5b5fd4e0e4"
+                "reference": "0e8249e0b15e2bc022fbbd1090ce29d071481e69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/210dd89560edb27a8e0d5086b734ac5b5fd4e0e4",
-                "reference": "210dd89560edb27a8e0d5086b734ac5b5fd4e0e4",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/0e8249e0b15e2bc022fbbd1090ce29d071481e69",
+                "reference": "0e8249e0b15e2bc022fbbd1090ce29d071481e69",
                 "shasum": ""
             },
             "require": {
@@ -972,7 +972,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
-                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.19.2"
+                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.20.0"
             },
             "funding": [
                 {
@@ -980,7 +980,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-06-25T16:42:58+00:00"
+            "time": "2023-06-27T20:22:39+00:00"
         },
         {
             "name": "icanhazstring/composer-unused",
@@ -2208,16 +2208,16 @@
         },
         {
             "name": "psalm/phar",
-            "version": "dev-master",
+            "version": "5.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/psalm/phar.git",
-                "reference": "8cc26b76292e8ad699dc1d6f79efe5eb93eba8f7"
+                "reference": "2107e3e98b25b93cb366dc601d1190af102431a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psalm/phar/zipball/8cc26b76292e8ad699dc1d6f79efe5eb93eba8f7",
-                "reference": "8cc26b76292e8ad699dc1d6f79efe5eb93eba8f7",
+                "url": "https://api.github.com/repos/psalm/phar/zipball/2107e3e98b25b93cb366dc601d1190af102431a5",
+                "reference": "2107e3e98b25b93cb366dc601d1190af102431a5",
                 "shasum": ""
             },
             "require": {
@@ -2226,7 +2226,6 @@
             "conflict": {
                 "vimeo/psalm": "*"
             },
-            "default-branch": true,
             "bin": [
                 "psalm.phar"
             ],
@@ -2238,9 +2237,9 @@
             "description": "Composer-based Psalm Phar",
             "support": {
                 "issues": "https://github.com/psalm/phar/issues",
-                "source": "https://github.com/psalm/phar/tree/master"
+                "source": "https://github.com/psalm/phar/tree/5.13.1"
             },
-            "time": "2023-06-24T17:08:50+00:00"
+            "time": "2023-06-27T17:20:37+00:00"
         },
         {
             "name": "psr/cache",
@@ -5592,9 +5591,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "psalm/phar": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
