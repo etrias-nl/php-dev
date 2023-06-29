@@ -2,7 +2,7 @@
 FROM node:16.20.1-slim as node
 FROM composer:2.5.8 as composer
 FROM stephenc/envsub:0.1.3 as envsub
-FROM etriasnl/percona-toolkit:3.3.1-7 as pt_toolkit
+FROM perconalab/percona-toolkit:3.5.3 as pt_toolkit
 FROM etriasnl/php-extensions:7.4-bullseye-apcu-5.1.21 as module_apcu
 FROM etriasnl/php-extensions:7.4-bullseye-bcmath-0 as module_bcmath
 FROM etriasnl/php-extensions:7.4-bullseye-calendar-0 as module_calendar
@@ -31,7 +31,7 @@ ENV COMPOSER_HOME=/app/var/composer
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 COPY --from=envsub /bin/envsub /usr/bin/
-COPY --from=pt_toolkit /usr/local/bin/pt-online-schema-change /usr/bin/
+COPY --from=pt_toolkit /usr/bin/pt-online-schema-change /usr/bin/
 COPY --from=module_apcu /extension/ /extensions/apcu
 COPY --from=module_bcmath /extension/ /extensions/bcmath
 COPY --from=module_calendar /extension/ /extensions/calendar

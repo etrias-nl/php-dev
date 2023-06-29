@@ -41,6 +41,7 @@ test: PHP_TAG=php-tmp-test
 test: build
 	docker run --rm "${IMAGE_TAG}" node --version
 	docker run --rm "${IMAGE_TAG}" yarn --version
+	docker run --rm "${IMAGE_TAG}" pt-online-schema-change --version
 	docker run --rm "${IMAGE_TAG}" php -v
 	docker run --rm "${IMAGE_TAG}" php -m
 	docker run --rm "${IMAGE_TAG}" composer --version
