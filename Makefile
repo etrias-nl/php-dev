@@ -13,9 +13,11 @@ PHP_TAG=${IMAGE}:${PHP_VERSION}-${PATCH_VERSION}
 
 exec_docker=docker run $(shell [ "$$CI" = true ] && echo "-t" || echo "-it") -e CI -u "$(shell id -u):$(shell id -g)" --rm -v "$(shell pwd):/app" -w /app
 
-composer-cli:
+# @todo move composer.json to root after single version per branch
+# @todo remove config.platform version from composer.json
+composer-cli: # @todo ${exec_docker} bash
 	${exec_docker} composer bash
-composer-update:
+composer-update: # @todo ${exec_docker} composer ...
 	${exec_docker} composer --working-dir="tools/php-7.4" update
 	${exec_docker} composer --working-dir="tools/php-7.4" bump
 	${exec_docker} composer --working-dir="tools/php-7.4" normalize
@@ -30,7 +32,7 @@ lint: lint-yaml lint-dockerfile
 build: lint
 	docker buildx build --file "${DOCKERFILE}" --load --tag "${PHP_TAG}" .
 cli: clean build
-	docker exec -it "$(shell docker run -it -d "${PHP_TAG}")" bash
+	docker run -it --rm "${PHP_TAG}" bash
 clean:
 	docker rm $(shell docker ps -aq -f "ancestor=${IMAGE_TAG}") --force || true
 	docker rmi $(shell docker images -q "${IMAGE}") --force || true
