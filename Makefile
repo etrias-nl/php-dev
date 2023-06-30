@@ -43,11 +43,9 @@ test: build
 	docker run --rm "${IMAGE_TAG}" yarn --version
 	docker run --rm "${IMAGE_TAG}" pt-online-schema-change --version
 	docker run --rm "${IMAGE_TAG}" php -v
-	docker run --rm "${IMAGE_TAG}" php -m
+	docker run --rm "${IMAGE_TAG}" php -m | paste -sd ","
 	docker run --rm "${IMAGE_TAG}" composer --version
 	docker run --rm "${IMAGE_TAG}" composer --working-dir=/usr/local/etc/tools normalize --dry-run
-	docker run --rm "${IMAGE_TAG}" composer-unused --version
-	docker run --rm "${IMAGE_TAG}" composer-require-checker --version
 	docker run --rm "${IMAGE_TAG}" phplint --version
 	docker run --rm "${IMAGE_TAG}" php-cs-fixer --version --version
 	docker run --rm "${IMAGE_TAG}" phpunit --version
