@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a1ace250759a8f52b0ad40c170e3bde3",
+    "content-hash": "e9b895fabdb7d2723441e9cae062313d",
     "packages": [
         {
             "name": "composer/pcre",
@@ -2028,16 +2028,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "0.17.2",
+            "version": "0.17.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "b8f72ff7e4914bb1d1557cc5c6d33898f7fd2bfb"
+                "reference": "14829888274eebddc67a0d7248c3dd2965704fbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/b8f72ff7e4914bb1d1557cc5c6d33898f7fd2bfb",
-                "reference": "b8f72ff7e4914bb1d1557cc5c6d33898f7fd2bfb",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/14829888274eebddc67a0d7248c3dd2965704fbc",
+                "reference": "14829888274eebddc67a0d7248c3dd2965704fbc",
                 "shasum": ""
             },
             "require": {
@@ -2077,7 +2077,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/0.17.2"
+                "source": "https://github.com/rectorphp/rector/tree/0.17.4"
             },
             "funding": [
                 {
@@ -2085,7 +2085,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-06-29T10:03:28+00:00"
+            "time": "2023-07-11T16:00:46+00:00"
         },
         {
             "name": "sebastian/cli-parser",
