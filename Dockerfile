@@ -93,7 +93,7 @@ RUN ln -s /usr/lib/node_modules/npm/bin/npm-cli.js /usr/bin/npm && \
     yarn config set cache-folder /app/var/yarn-cache && \
     chmod 777 /usr/local/share/.yarnrc && ln -s /usr/local/share/.yarnrc /.yarnrc
 
-COPY php-ini/* /usr/local/etc/php/conf.d/
+COPY docker/php-dev.ini /usr/local/etc/php/conf.d/
 
 RUN composer completion bash > /etc/bash_completion.d/composer
 
