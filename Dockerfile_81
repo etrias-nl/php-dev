@@ -15,7 +15,6 @@ FROM etriasnl/php-extensions:8.1-bullseye-intl-0 as module_intl
 FROM etriasnl/php-extensions:8.1-bullseye-opcache-0 as module_opcache
 FROM etriasnl/php-extensions:8.1-bullseye-pcntl-0 as module_pcntl
 FROM etriasnl/php-extensions:8.1-bullseye-pdo_mysql-0 as module_pdo_mysql
-FROM etriasnl/php-extensions:8.1-bullseye-redis-5.3.4 as module_redis
 FROM etriasnl/php-extensions:8.1-bullseye-soap-0 as module_soap
 FROM etriasnl/php-extensions:8.1-bullseye-sockets-0 as module_sockets
 FROM etriasnl/php-extensions:8.1-bullseye-xdebug-3.1.2 as module_xdebug
@@ -43,7 +42,6 @@ COPY --from=module_intl /extension/ /extensions/intl
 COPY --from=module_opcache /extension/ /extensions/opcache
 COPY --from=module_pcntl /extension/ /extensions/pcntl
 COPY --from=module_pdo_mysql /extension/ /extensions/pdo_mysql
-COPY --from=module_redis /extension/ /extensions/redis
 COPY --from=module_soap /extension/ /extensions/soap
 COPY --from=module_sockets /extension/ /extensions/sockets
 COPY --from=module_xdebug /extension/ /extensions/xdebug
@@ -63,7 +61,6 @@ RUN /extensions/apcu/install.sh \
     && /extensions/opcache/install.sh \
     && /extensions/pcntl/install.sh \
     && /extensions/pdo_mysql/install.sh \
-    && /extensions/redis/install.sh \
     && /extensions/soap/install.sh \
     && /extensions/sockets/install.sh \
     && /extensions/xdebug/install.sh \
