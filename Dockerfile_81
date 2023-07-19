@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
     clamdscan \
     && rm -rf /var/lib/apt/lists/*
 
-RUN install-php-extensions apcu bcmath calendar exif gd gearman gmagick igbinary imap intl opcache pcntl pdo_mysql soap sockets xdebug zip xsl
+RUN install-php-extensions apcu bcmath calendar exif gd php/pecl-networking-gearman@7033013a1e10add4edb3056a27d62bb4708e942b gmagick igbinary imap intl opcache pcntl pdo_mysql soap sockets xdebug zip xsl
 
 COPY --from=node /usr/local/bin/node /usr/bin/node
 COPY --from=node /usr/local/lib/node_modules /usr/lib/node_modules
