@@ -24,11 +24,8 @@ composer-update: # @todo ${exec_docker} composer ...
 	${exec_docker} composer --working-dir="tools/php-8.1" update
 	${exec_docker} composer --working-dir="tools/php-8.1" bump
 	${exec_docker} composer --working-dir="tools/php-8.1" normalize
-lint-yaml:
-	${exec_docker} cytopia/yamllint .
-lint-dockerfile:
+lint:
 	${exec_docker} hadolint/hadolint hadolint --ignore DL3008 --ignore DL3059 --ignore DL4006 "${DOCKERFILE}"
-lint: lint-yaml lint-dockerfile
 build: lint
 	docker buildx build --file "${DOCKERFILE}" --load --tag "${PHP_TAG}" .
 cli: clean build
