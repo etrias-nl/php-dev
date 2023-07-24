@@ -4,7 +4,7 @@ name: Publish
     workflow_dispatch:
     push:
         tags:
-            - '*.*.*'
+            - '*.*.*-*'
 
 env:
     DOCKER_IMAGE: etriasnl/dev-php-fpm
