@@ -5,7 +5,7 @@ IMAGE=$(shell docker run -i --rm mikefarah/yq '.env.DOCKER_IMAGE' < .github/work
 IMAGE_TAG=${IMAGE}:$(shell (git describe --tags --exact-match || git symbolic-ref --short HEAD || git rev-parse --short HEAD) | sed 's\/\-\')
 
 DOCKERFILE?=Dockerfile
-PHP_VERSION=$(shell cat "${DOCKERFILE}" | grep 'FROM php:' | cut -f2 -d':' | cut -f1 -d '-')
+PHP_VERSION=$(shell cat "${DOCKERFILE}" | grep -E 'FROM (etriasnl/php-fpm|php):' | cut -f2 -d':' | cut -f1 -d '-')
 PHP_VERSION_MAJOR=$(shell echo "${PHP_VERSION}" | cut -f1 -d '.')
 PHP_VERSION_MINOR=$(shell echo "${PHP_VERSION}" | cut -f2 -d '.')
 PATCH_VERSION=$$(($(shell curl -sS "https://hub.docker.com/v2/repositories/${IMAGE}/tags/?page_size=1&page=1&name=${PHP_VERSION_MAJOR}.${PHP_VERSION_MINOR}.&ordering=last_updated" | jq -r '.results[0].name' | cut -f2 -d '-') + 1))
