@@ -17,7 +17,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
     dnsutils iputils-ping lsof net-tools \
     git vim nano curl wget jq bash-completion \
     clamdscan \
-    libpng-dev libdbi-perl && \
+    libpng-dev \
+    libdbi-perl libdbd-mysql-perl && \
     rm -rf /var/lib/apt/lists/*
 
 RUN install-php-extensions xdebug
