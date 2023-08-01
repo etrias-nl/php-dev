@@ -11,9 +11,6 @@
     "config": {
         "allow-plugins": {
             "ergebnis/composer-normalize": true
-        },
-        "platform": {
-            "php": "8.1.9999"
         }
     }
 }

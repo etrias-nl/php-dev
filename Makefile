@@ -5,13 +5,10 @@ IMAGE=$(shell docker run -i --rm mikefarah/yq '.env.DOCKER_IMAGE' < .github/work
 IMAGE_TAG=${IMAGE}:$(shell (git describe --tags --exact-match || git symbolic-ref --short HEAD || git rev-parse --short HEAD) | sed 's\/\-\')
 
 exec_docker=docker run -t -u "$(shell id -u):$(shell id -g)" --rm -v "$(shell pwd):/app" -w /app
+exec_docker_app=${exec_docker} ${IMAGE_TAG}
 
-composer-cli:
-	${exec_docker} composer bash
-composer-update:
-	${exec_docker} composer --working-dir=docker update --no-progress -n
-	${exec_docker} composer --working-dir=docker bump
-	${exec_docker} composer --working-dir=docker normalize
+composer-update: build
+	${exec_docker_app} sh -c "cd docker && composer update --no-progress -n && composer bump && composer normalize"
 build:
 	docker buildx build --load --tag "${IMAGE_TAG}" .
 cli: clean build
