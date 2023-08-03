@@ -6,7 +6,7 @@
         "overtrue/phplint": "^9.0.4",
         "phpunit/phpunit": "^10.2.7",
         "psalm/phar": "^5.14.1",
-        "rector/rector": "^0.17.7"
+        "rector/rector": "^0.17.9"
     },
     "config": {
         "allow-plugins": {
