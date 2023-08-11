@@ -1,4 +1,4 @@
-FROM node:16.20.1-slim as node
+FROM node:16.20.2-slim as node
 FROM composer:2.5.8 as composer
 FROM stephenc/envsub:0.1.3 as envsub
 FROM perconalab/percona-toolkit:3.5.3 as pt_toolkit
