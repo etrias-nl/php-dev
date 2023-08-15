@@ -23,6 +23,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
 
 RUN install-php-extensions xdebug
 
+RUN chmod 0666 /var/log/newrelic/newrelic-daemon.log
+
 COPY --from=node /usr/local/bin/node /usr/bin/node
 COPY --from=node /usr/local/lib/node_modules /usr/lib/node_modules
 COPY --from=node /opt/yarn* /opt/yarn
