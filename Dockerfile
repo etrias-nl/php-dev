@@ -8,7 +8,7 @@ FROM etriasnl/php-fpm:8.1.22-2 AS php
 ENV COMPOSER_ALLOW_SUPERUSER=1
 ENV COMPOSER_HOME=/app/var/composer
 
-COPY --from=composer /usr/bin/composer /usr/bin/composer
+COPY --from=composer /composer /usr/bin/composer
 COPY --from=envsub /bin/envsub /usr/bin/
 COPY --from=pt_toolkit /usr/bin/pt-online-schema-change /usr/bin/
 
