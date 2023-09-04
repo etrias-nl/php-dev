@@ -1,5 +1,5 @@
 FROM node:16.20.2-slim as node
-FROM composer/composer:2.5.8-bin as composer
+FROM composer/composer:2.6.2-bin as composer
 FROM stephenc/envsub:0.1.3 as envsub
 FROM perconalab/percona-toolkit:3.5.3 as pt_toolkit
 
