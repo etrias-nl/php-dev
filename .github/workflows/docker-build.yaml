@@ -7,6 +7,10 @@ name: Docker Build
     pull_request:
         branches: [ main ]
 
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref_name }}-${{ github.head_ref || github.actor }}
+    cancel-in-progress: true
+
 env:
     DOCKER_IMAGE: etriasnl/dev-php-fpm
 
