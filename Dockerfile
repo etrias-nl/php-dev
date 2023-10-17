@@ -25,6 +25,9 @@ RUN install-php-extensions xdebug
 
 RUN chmod 0666 /var/log/newrelic/newrelic-daemon.log
 
+RUN wget -qO /tmp/nats.deb https://github.com/nats-io/natscli/releases/latest/download/nats-0.1.1-amd64.deb
+RUN dpkg -i /tmp/nats.deb
+
 COPY --from=node /usr/local/bin/node /usr/bin/node
 COPY --from=node /usr/local/lib/node_modules /usr/lib/node_modules
 COPY --from=node /opt/yarn* /opt/yarn
