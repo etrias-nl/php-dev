@@ -36,6 +36,7 @@ jobs:
                     docker run --rm "${{ steps.build.outputs.imageid }}" node --version
                     docker run --rm "${{ steps.build.outputs.imageid }}" yarn --version
                     docker run --rm "${{ steps.build.outputs.imageid }}" pt-online-schema-change --version
+                    docker run --rm "${{ steps.build.outputs.imageid }}" nats --version
                     docker run --rm "${{ steps.build.outputs.imageid }}" php -v
                     docker run --rm "${{ steps.build.outputs.imageid }}" php -m
                     docker run --rm "${{ steps.build.outputs.imageid }}" composer --version
