@@ -3,7 +3,7 @@ FROM composer/composer:2.6.5-bin as composer
 FROM stephenc/envsub:0.1.3 as envsub
 FROM perconalab/percona-toolkit:3.5.3 as pt_toolkit
 
-FROM etriasnl/php-fpm:8.1.24-6 AS php
+FROM etriasnl/php-fpm:8.1.25-7 AS php
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 ENV COMPOSER_HOME=/app/var/composer
