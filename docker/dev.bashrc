@@ -1,7 +1,5 @@
 # custom
 alias ll='ls -alF --group-directories-first --color=auto'
-alias xphp='XDEBUG_TRIGGER=PHPSTORM php'
-alias memprofphp='MEMPROF_PROFILE=1 php'
 
 # @see /etc/bash.bashrc in container
 
