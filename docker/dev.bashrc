@@ -1,5 +1,6 @@
 # custom
 alias ll='ls -alF --group-directories-first --color=auto'
+alias xphp='XDEBUG_TRIGGER=PHPSTORM php'
 
 # @see /etc/bash.bashrc in container
 
