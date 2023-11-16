@@ -48,7 +48,7 @@ RUN echo ". /usr/local/etc/dev.bashrc" >> /etc/bash.bashrc
 
 WORKDIR /usr/local/etc/tools
 
-COPY docker/composer.* .
+COPY composer.* .
 RUN --mount=type=cache,target=/app/var/composer \
     composer install --prefer-dist --no-progress --optimize-autoloader
 ENV PATH="${PATH}:/usr/local/etc/tools/vendor/bin"
