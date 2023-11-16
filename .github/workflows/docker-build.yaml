@@ -33,10 +33,6 @@ jobs:
                     cache-to: type=gha,mode=max
             -
                 run: |
-                    docker run --rm "${{ steps.build.outputs.imageid }}" node --version
-                    docker run --rm "${{ steps.build.outputs.imageid }}" yarn --version
-                    docker run --rm "${{ steps.build.outputs.imageid }}" pt-online-schema-change --version
-                    docker run --rm "${{ steps.build.outputs.imageid }}" nats --version
                     docker run --rm "${{ steps.build.outputs.imageid }}" php -v
                     docker run --rm "${{ steps.build.outputs.imageid }}" php -m
                     docker run --rm "${{ steps.build.outputs.imageid }}" composer --version
@@ -46,6 +42,12 @@ jobs:
                     docker run --rm "${{ steps.build.outputs.imageid }}" phpunit --version
                     docker run --rm "${{ steps.build.outputs.imageid }}" psalm --version
                     docker run --rm "${{ steps.build.outputs.imageid }}" rector --version
+                    docker run --rm "${{ steps.build.outputs.imageid }}" node --version
+                    docker run --rm "${{ steps.build.outputs.imageid }}" yarn --version
+                    docker run --rm "${{ steps.build.outputs.imageid }}" pt-online-schema-change --version
+                    docker run --rm "${{ steps.build.outputs.imageid }}" nats --version
+                    docker run --rm "${{ steps.build.outputs.imageid }}" yamllint --version
+                    docker run --rm "${{ steps.build.outputs.imageid }}" s3cmd --version
             -
                 uses: docker/login-action@v3.0.0
                 with:
