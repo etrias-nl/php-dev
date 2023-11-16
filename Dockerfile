@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
     procps \
     dnsutils iputils-ping lsof net-tools \
     git vim nano curl wget jq bash-completion unzip \
+    s3cmd yamllint \
     clamdscan \
     libpng-dev \
     libdbi-perl libdbd-mysql-perl && \
