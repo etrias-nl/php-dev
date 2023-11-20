@@ -5,6 +5,8 @@ FROM perconalab/percona-toolkit:3.5.3 as pt_toolkit
 
 FROM etriasnl/php-fpm:8.1.25-7 AS php
 
+RUN ln -srf /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
+
 ENV COMPOSER_ALLOW_SUPERUSER=1
 ENV COMPOSER_HOME=/app/var/composer
 
