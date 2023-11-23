@@ -5,7 +5,7 @@
         "friendsofphp/php-cs-fixer": "^3.39.0",
         "overtrue/phplint": "^9.0.4",
         "phpunit/phpunit": "^10.4.2",
-        "psalm/phar": "^5.15.0",
+        "psalm/phar": "^5.16.0",
         "rector/rector": "^0.18.10",
         "symfony/requirements-checker": "^2.0.1"
     },
