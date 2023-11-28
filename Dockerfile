@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
     procps \
     dnsutils iputils-ping lsof net-tools \
     git vim nano curl wget jq bash-completion unzip \
-    s3cmd yamllint \
+    s3cmd yamllint shellcheck \
     clamdscan \
     libpng-dev \
     libdbi-perl libdbd-mysql-perl && \
@@ -30,6 +30,8 @@ RUN chmod 0666 /var/log/newrelic/newrelic-daemon.log
 
 RUN wget -qO /tmp/nats.deb https://github.com/nats-io/natscli/releases/latest/download/nats-0.1.1-amd64.deb
 RUN dpkg -i /tmp/nats.deb
+
+RUN curl -sSfL https://raw.githubusercontent.com/dotenv-linter/dotenv-linter/master/install.sh | sh -s -- -b /usr/bin
 
 COPY --from=node /usr/local/bin/node /usr/bin/node
 COPY --from=node /usr/local/lib/node_modules /usr/lib/node_modules
