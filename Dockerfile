@@ -14,7 +14,8 @@ COPY --from=composer /composer /usr/bin/composer
 COPY --from=envsub /bin/envsub /usr/bin/
 COPY --from=pt_toolkit /usr/bin/pt-online-schema-change /usr/bin/
 
-RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
+RUN --mount=type=cache,target=/var/cache/apt \
+    apt-get update && apt-get install -y --no-install-recommends --fix-missing \
     procps \
     dnsutils iputils-ping lsof net-tools \
     git vim nano curl wget jq bash-completion unzip \
