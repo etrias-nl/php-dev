@@ -5,6 +5,8 @@ FROM perconalab/percona-toolkit:3.5.5 as pt_toolkit
 
 FROM etriasnl/php-fpm:8.1.26-9 AS php
 
+LABEL org.opencontainers.image.source="https://github.com/etrias-nl/php-dev"
+
 RUN ln -srf /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
