@@ -3,7 +3,7 @@ FROM composer/composer:2.6.6-bin as composer
 FROM stephenc/envsub:0.1.3 as envsub
 FROM perconalab/percona-toolkit:3.5.5 as pt_toolkit
 
-FROM etriasnl/php-fpm:8.1.26-904 AS php
+FROM etriasnl/php-fpm:8.1.27-1 AS php
 
 RUN ln -srf /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
 
