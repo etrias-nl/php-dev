@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
     git vim nano curl wget jq bash-completion unzip \
     s3cmd yamllint shellcheck \
     clamdscan \
+    ffmpeg \
     libpng-dev \
     libdbi-perl libdbd-mysql-perl && \
     rm -rf /var/lib/apt/lists/*
