@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fbafe1073819d39763d5f7089dc68085",
+    "content-hash": "3065fd4a5b0b54fa9c0c130b987fa54f",
     "packages": [
         {
             "name": "composer/pcre",
@@ -973,16 +973,16 @@
         },
         {
             "name": "overtrue/phplint",
-            "version": "9.1.0",
+            "version": "9.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/phplint.git",
-                "reference": "6537f697a8e181fd529bdd8f0fdaaa3fe899bea7"
+                "reference": "b76725cdd7bee1d5b467d829e587a17b387355ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/overtrue/phplint/zipball/6537f697a8e181fd529bdd8f0fdaaa3fe899bea7",
-                "reference": "6537f697a8e181fd529bdd8f0fdaaa3fe899bea7",
+                "url": "https://api.github.com/repos/overtrue/phplint/zipball/b76725cdd7bee1d5b467d829e587a17b387355ed",
+                "reference": "b76725cdd7bee1d5b467d829e587a17b387355ed",
                 "shasum": ""
             },
             "require": {
@@ -1051,7 +1051,7 @@
             ],
             "support": {
                 "issues": "https://github.com/overtrue/phplint/issues",
-                "source": "https://github.com/overtrue/phplint/tree/9.1.0"
+                "source": "https://github.com/overtrue/phplint/tree/9.1.1"
             },
             "funding": [
                 {
@@ -1059,7 +1059,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-12-17T07:05:41+00:00"
+            "time": "2024-02-05T10:08:37+00:00"
         },
         {
             "name": "phar-io/manifest",
