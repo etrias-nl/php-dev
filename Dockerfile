@@ -54,9 +54,6 @@ COPY composer.* .
 RUN --mount=type=cache,target=/app/var/composer \
     composer install --prefer-dist --no-progress --optimize-autoloader
 ENV PATH="${PATH}:/usr/local/etc/tools/vendor/bin"
-
-RUN wget -qO vendor/bin/phpunit.phar "https://phar.phpunit.de/phpunit-$(composer show --locked --self --format=json | jq -r '.requires."phpunit/phpunit"[1:]').phar" && chmod +x vendor/bin/phpunit.phar
-RUN ln -sfn phpunit.phar vendor/bin/phpunit
 RUN ln -sfn psalm.phar vendor/bin/psalm
 
 WORKDIR /app
