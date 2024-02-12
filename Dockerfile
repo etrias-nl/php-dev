@@ -1,5 +1,5 @@
 FROM node:16.20.2-slim as node
-FROM composer/composer:2.6.6-bin as composer
+FROM composer/composer:2.7.1-bin as composer
 FROM stephenc/envsub:0.1.3 as envsub
 FROM perconalab/percona-toolkit:3.5.7 as pt_toolkit
 
@@ -54,9 +54,6 @@ COPY composer.* .
 RUN --mount=type=cache,target=/app/var/composer \
     composer install --prefer-dist --no-progress --optimize-autoloader
 ENV PATH="${PATH}:/usr/local/etc/tools/vendor/bin"
-
-RUN wget -qO vendor/bin/phpunit.phar "https://phar.phpunit.de/phpunit-$(composer show --locked --self --format=json | jq -r '.requires."phpunit/phpunit"[1:]').phar" && chmod +x vendor/bin/phpunit.phar
-RUN ln -sfn phpunit.phar vendor/bin/phpunit
 RUN ln -sfn psalm.phar vendor/bin/psalm
 
 WORKDIR /app
