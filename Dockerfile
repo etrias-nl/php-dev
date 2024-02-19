@@ -43,6 +43,7 @@ RUN ln -s /usr/lib/node_modules/npm/bin/npm-cli.js /usr/bin/npm && \
 
 COPY docker/php-dev.ini /usr/local/etc/php/conf.d/
 
+RUN nats --completion-script-bash > /etc/bash_completion.d/nats
 RUN composer completion bash > /etc/bash_completion.d/composer
 
 COPY docker/dev.bashrc /usr/local/etc/
