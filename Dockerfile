@@ -1,21 +1,12 @@
 FROM node:16.20.2-slim as node
-FROM composer/composer:2.7.1-bin as composer
-FROM stephenc/envsub:0.1.3 as envsub
-FROM perconalab/percona-toolkit:3.5.7 as pt_toolkit
 
-FROM etriasnl/php-fpm:8.1.27-4 AS php
+FROM etriasnl/php-fpm:8.1.27-5 AS php
 
 RUN ln -srf /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
 
-ENV COMPOSER_ALLOW_SUPERUSER=1
 ENV COMPOSER_HOME=/app/var/composer
 
-COPY --from=composer /composer /usr/bin/composer
-COPY --from=envsub /bin/envsub /usr/bin/
-COPY --from=pt_toolkit /usr/bin/pt-online-schema-change /usr/bin/
-
 RUN apt-get update && apt-get install -y --no-install-recommends --fix-missing \
-    procps \
     dnsutils iputils-ping lsof net-tools \
     git vim nano curl wget jq bash-completion unzip \
     s3cmd yamllint shellcheck \
