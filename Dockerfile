@@ -29,7 +29,7 @@ RUN install-php-extensions xdebug
 
 RUN chmod 0666 /var/log/newrelic/newrelic-daemon.log
 
-RUN curl -sSfL https://raw.githubusercontent.com/dotenv-linter/dotenv-linter/master/install.sh | sh -s -- -b /usr/bin
+RUN curl -sSfL 'https://raw.githubusercontent.com/dotenv-linter/dotenv-linter/master/install.sh' | sh -s -- -b /usr/bin
 
 COPY --from=node /usr/local/bin/node /usr/bin/node
 COPY --from=node /usr/local/lib/node_modules /usr/lib/node_modules
@@ -47,7 +47,7 @@ RUN nats --completion-script-bash > /etc/bash_completion.d/nats
 RUN composer completion bash > /etc/bash_completion.d/composer
 
 COPY docker/dev.bashrc /usr/local/etc/
-RUN echo ". /usr/local/etc/dev.bashrc" >> /etc/bash.bashrc
+RUN echo '. /usr/local/etc/dev.bashrc' >> /etc/bash.bashrc
 
 WORKDIR /usr/local/etc/tools
 
