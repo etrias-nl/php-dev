@@ -30,22 +30,21 @@ COPY docker/php-dev.ini /usr/local/etc/php/conf.d/
 COPY docker/dev.bashrc /usr/local/etc/
 RUN echo '. /usr/local/etc/dev.bashrc' >> /etc/bash.bashrc
 
-RUN nats --completion-script-bash > /etc/bash_completion.d/nats
+ENV COMPOSER_HOME=/app/var/composer
+RUN yarn config set cache-folder /app/var/yarn-cache
+
 RUN composer completion bash > /etc/bash_completion.d/composer
+RUN nats --completion-script-bash > /etc/bash_completion.d/nats
 
 WORKDIR /usr/local/etc/tools
 
 COPY composer.* .
-RUN --mount=type=cache,target=/tmp/build/composer \
+RUN --mount=type=cache,target=/app/var/composer/cache \
     composer install --prefer-dist --no-progress --optimize-autoloader
-ENV PATH="${PATH}:/usr/local/etc/tools/vendor/bin"
 RUN ln -sfn psalm.phar vendor/bin/psalm
-RUN rm -rf /root/.composer
+ENV PATH="${PATH}:/usr/local/etc/tools/vendor/bin"
 
 WORKDIR /app
 
-ENV PATH="${PATH}:/usr/local/etc/tools/vendor/bin"
-ENV COMPOSER_HOME=/app/var/composer
-RUN yarn config set cache-folder /app/var/yarn-cache
 RUN chmod 0777 /usr/local/share/.yarnrc && ln -s /usr/local/share/.yarnrc /.yarnrc # @todo cleanup
 RUN chmod 0666 /var/log/newrelic/newrelic-daemon.log # @todo cleanup
