@@ -38,7 +38,7 @@ RUN nats --completion-script-bash > /etc/bash_completion.d/nats
 
 WORKDIR /usr/local/etc/tools
 
-COPY composer.* .
+COPY ["composer.json", "composer.lock", "./"]
 RUN --mount=type=cache,target=/app/var/composer/cache \
     composer install --prefer-dist --no-progress --optimize-autoloader
 RUN ln -sfn psalm.phar vendor/bin/psalm
