@@ -1,6 +1,6 @@
 {
     "require": {
-        "php": "~8.1.27",
+        "php": "~8.3.4",
         "ergebnis/composer-normalize": "^2.42.0",
         "friendsofphp/php-cs-fixer": "^3.51.0",
         "overtrue/phplint": "^9.1.2",
