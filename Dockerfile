@@ -6,7 +6,8 @@ RUN ln -srf /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
 
 RUN install-php-extensions xdebug
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN --mount=type=cache,target=/var/cache/apt \
+    apt-get update && apt-get install -y --no-install-recommends \
     dnsutils iputils-ping lsof net-tools \
     git vim nano curl wget jq bash-completion unzip \
     s3cmd yamllint shellcheck \
