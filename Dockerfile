@@ -1,6 +1,6 @@
 FROM node:16.20.2-slim as node
 
-FROM etriasnl/php-fpm:8.1.27-10
+FROM etriasnl/php-fpm:8.1.27-11
 
 RUN ln -srf /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
 
@@ -48,4 +48,3 @@ ENV PATH="${PATH}:/usr/local/etc/tools/vendor/bin"
 WORKDIR /app
 
 RUN chmod 0777 /usr/local/share/.yarnrc && ln -s /usr/local/share/.yarnrc /.yarnrc # @todo cleanup
-RUN chmod 0666 /var/log/newrelic/newrelic-daemon.log # @todo cleanup
