@@ -17,14 +17,14 @@ RUN --mount=type=cache,target=/var/cache/apt \
     libdbi-perl libdbd-mysql-perl && \
     rm -rf /var/lib/apt/lists/*
 
-RUN curl -sSfL 'https://raw.githubusercontent.com/dotenv-linter/dotenv-linter/master/install.sh' | sh -s -- -b /usr/bin
-
 COPY --from=node /usr/local/bin/node /usr/bin/node
 COPY --from=node /usr/local/lib/node_modules /usr/lib/node_modules
 COPY --from=node /opt/yarn* /opt/yarn
 RUN ln -s /usr/lib/node_modules/npm/bin/npm-cli.js /usr/bin/npm && \
     ln -s /usr/lib/node_modules/npm/bin/npx-cli.js /usr/bin/npx && \
     ln -s /opt/yarn/bin/yarn.js /usr/bin/yarn
+
+RUN curl -sSfL 'https://raw.githubusercontent.com/dotenv-linter/dotenv-linter/master/install.sh' | sh -s -- -b /usr/bin v3.3.0
 
 COPY docker/php-dev.ini /usr/local/etc/php/conf.d/
 
