@@ -1,5 +1,7 @@
 # custom
 alias ll='ls -alF --group-directories-first --color=auto'
+alias la='ls -A --group-directories-first --color=auto'
+alias l='ls -CF --group-directories-first --color=auto'
 
 # @see /etc/bash.bashrc in container
 
