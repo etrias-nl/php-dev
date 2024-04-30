@@ -6,3 +6,5 @@ exec_app=${exec_docker} "$(shell docker build -q .)"
 
 composer-update:
 	${exec_app} sh -c "composer update --no-progress -n && composer bump && composer normalize"
+cli:
+	${exec_app} bash
