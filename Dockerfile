@@ -14,7 +14,8 @@ RUN --mount=type=cache,target=/var/cache/apt \
     clamdscan \
     ffmpeg \
     libpng-dev \
-    libdbi-perl libdbd-mysql-perl && \
+    libdbi-perl libdbd-mysql-perl \
+    gdb && \
     rm -rf /var/lib/apt/lists/*
 
 COPY --from=node /usr/local/bin/node /usr/bin/node
