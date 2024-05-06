@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b08839c240d9dc8277d344bcf86499bb",
+    "content-hash": "bdf569ba2d51eff0b75596541b76c969",
     "packages": [
         {
             "name": "composer/pcre",
@@ -975,16 +975,16 @@
         },
         {
             "name": "overtrue/phplint",
-            "version": "9.1.2",
+            "version": "9.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/phplint.git",
-                "reference": "7a9822c863d19fa8ec42f862c0e135da58b5cb4b"
+                "reference": "b211fe17b8b9e8f2b3db10243f6adcb6397715c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/overtrue/phplint/zipball/7a9822c863d19fa8ec42f862c0e135da58b5cb4b",
-                "reference": "7a9822c863d19fa8ec42f862c0e135da58b5cb4b",
+                "url": "https://api.github.com/repos/overtrue/phplint/zipball/b211fe17b8b9e8f2b3db10243f6adcb6397715c3",
+                "reference": "b211fe17b8b9e8f2b3db10243f6adcb6397715c3",
                 "shasum": ""
             },
             "require": {
@@ -1002,8 +1002,9 @@
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.4",
+                "bartlett/sarif-php-sdk": "^1.2",
                 "brainmaestro/composer-git-hooks": "^2.8.5 || 3.0.0-alpha.1",
-                "jetbrains/phpstorm-stubs": "^2021.3 || ^2022.3 || ^2023.3",
+                "jetbrains/phpstorm-stubs": "^2021.3 || ^2022.3 || ^2023.3 || ^2024.1",
                 "php-parallel-lint/php-console-highlighter": "^1.0"
             },
             "bin": [
@@ -1011,6 +1012,11 @@
             ],
             "type": "library",
             "extra": {
+                "bamarni-bin": {
+                    "bin-links": true,
+                    "target-directory": "vendor-bin",
+                    "forward-command": true
+                },
                 "hooks": {
                     "pre-commit": [
                         "composer style:fix",
@@ -1021,7 +1027,7 @@
                     ]
                 },
                 "branch-alias": {
-                    "dev-main": "9.1.x-dev"
+                    "dev-main": "9.2.x-dev"
                 }
             },
             "autoload": {
@@ -1053,7 +1059,7 @@
             ],
             "support": {
                 "issues": "https://github.com/overtrue/phplint/issues",
-                "source": "https://github.com/overtrue/phplint/tree/9.1.2"
+                "source": "https://github.com/overtrue/phplint/tree/9.2.0"
             },
             "funding": [
                 {
@@ -1061,7 +1067,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-02-06T10:43:30+00:00"
+            "time": "2024-05-03T07:14:21+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -2971,16 +2977,16 @@
         },
         {
             "name": "symfony/cache-contracts",
-            "version": "v3.4.2",
+            "version": "v3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache-contracts.git",
-                "reference": "2c9db6509a1b21dad229606897639d3284f54b2a"
+                "reference": "df6a1a44c890faded49a5fca33c2d5c5fd3c2197"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache-contracts/zipball/2c9db6509a1b21dad229606897639d3284f54b2a",
-                "reference": "2c9db6509a1b21dad229606897639d3284f54b2a",
+                "url": "https://api.github.com/repos/symfony/cache-contracts/zipball/df6a1a44c890faded49a5fca33c2d5c5fd3c2197",
+                "reference": "df6a1a44c890faded49a5fca33c2d5c5fd3c2197",
                 "shasum": ""
             },
             "require": {
@@ -2990,7 +2996,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "3.4-dev"
+                    "dev-main": "3.5-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -3027,7 +3033,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/cache-contracts/tree/v3.4.2"
+                "source": "https://github.com/symfony/cache-contracts/tree/v3.5.0"
             },
             "funding": [
                 {
@@ -3043,7 +3049,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-01-23T14:51:35+00:00"
+            "time": "2024-04-18T09:32:20+00:00"
         },
         {
             "name": "symfony/console",
