@@ -3,6 +3,8 @@ alias ll='ls -alF --group-directories-first --color=auto'
 alias la='ls -A --group-directories-first --color=auto'
 alias l='ls -CF --group-directories-first --color=auto'
 
+find /tmp/source_runtime.d -type f -exec bash -c 'source "{}"' \;
+
 # @see /etc/bash.bashrc in container
 
 # If this is an xterm set the title to user@host:dir

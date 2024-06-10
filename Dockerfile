@@ -35,6 +35,7 @@ RUN echo '. /usr/local/etc/dev.bashrc' >> /etc/bash.bashrc
 ENV COMPOSER_HOME=/app/var/composer
 RUN yarn config set cache-folder /app/var/yarn-cache
 
+RUN mkdir -m0777 /tmp/source_runtime.d
 RUN composer completion bash > /etc/bash_completion.d/composer
 RUN nats --completion-script-bash > /etc/bash_completion.d/nats
 
