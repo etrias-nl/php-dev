@@ -1,4 +1,4 @@
-FROM node:16.20.2-slim as node
+FROM node:16.20.2-slim AS node
 
 FROM etriasnl/php-fpm:8.1.29-22
 
