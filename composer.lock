@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "57ce67db8fb8f3fb89426d345b6d37ec",
+    "content-hash": "b6372fa78d268f3e2060c5b4957cb31c",
     "packages": [
         {
             "name": "clue/ndjson-react",
@@ -1158,16 +1158,16 @@
         },
         {
             "name": "overtrue/phplint",
-            "version": "9.3.1",
+            "version": "9.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/phplint.git",
-                "reference": "1e43e92e425c953f7c154460f0644517ea4f9317"
+                "reference": "cec4a0dbb9d00077dafa2f0cd89f4ca532814276"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/overtrue/phplint/zipball/1e43e92e425c953f7c154460f0644517ea4f9317",
-                "reference": "1e43e92e425c953f7c154460f0644517ea4f9317",
+                "url": "https://api.github.com/repos/overtrue/phplint/zipball/cec4a0dbb9d00077dafa2f0cd89f4ca532814276",
+                "reference": "cec4a0dbb9d00077dafa2f0cd89f4ca532814276",
                 "shasum": ""
             },
             "require": {
@@ -1185,9 +1185,8 @@
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.4",
-                "bartlett/sarif-php-sdk": "^1.2",
-                "brainmaestro/composer-git-hooks": "^2.8.5 || 3.0.0-alpha.1",
-                "jetbrains/phpstorm-stubs": "^2021.3 || ^2022.3 || ^2023.3 || ^2024.1",
+                "brainmaestro/composer-git-hooks": "^3.0.0",
+                "jetbrains/phpstorm-stubs": "^2024.1",
                 "php-parallel-lint/php-console-highlighter": "^1.0"
             },
             "bin": [
@@ -1210,7 +1209,7 @@
                     ]
                 },
                 "branch-alias": {
-                    "dev-main": "9.3.x-dev"
+                    "dev-main": "9.4.x-dev"
                 }
             },
             "autoload": {
@@ -1242,7 +1241,7 @@
             ],
             "support": {
                 "issues": "https://github.com/overtrue/phplint/issues",
-                "source": "https://github.com/overtrue/phplint/tree/9.3.1"
+                "source": "https://github.com/overtrue/phplint/tree/9.4.1"
             },
             "funding": [
                 {
@@ -1250,7 +1249,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-05-17T03:39:25+00:00"
+            "time": "2024-07-05T14:16:33+00:00"
         },
         {
             "name": "phar-io/manifest",
