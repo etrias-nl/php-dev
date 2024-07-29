@@ -55,7 +55,6 @@ jobs:
                     docker run --rm "${{ steps.build.outputs.imageid }}" s3cmd --version
                     docker run --rm "${{ steps.build.outputs.imageid }}" shellcheck --version
                     docker run --rm "${{ steps.build.outputs.imageid }}" dotenv-linter --version
-                    docker run --rm "${{ steps.build.outputs.imageid }}" which wait-for-it
             -
                 uses: docker/login-action@v3.3.0
                 with:

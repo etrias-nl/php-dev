@@ -8,7 +8,7 @@ RUN install-php-extensions xdebug
 
 RUN --mount=type=cache,target=/var/cache/apt \
     apt-get update && apt-get install -y --no-install-recommends \
-    dnsutils iputils-ping lsof net-tools wait-for-it \
+    dnsutils iputils-ping lsof net-tools \
     git vim nano curl wget jq bash-completion unzip \
     s3cmd yamllint shellcheck \
     clamdscan \
