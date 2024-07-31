@@ -33,7 +33,8 @@ COPY docker/dev.bashrc /usr/local/etc/
 RUN echo '. /usr/local/etc/dev.bashrc' >> /etc/bash.bashrc
 
 ENV COMPOSER_HOME=/app/var/composer
-RUN yarn config set cache-folder /app/var/yarn-cache
+RUN DISABLE_V8_COMPILE_CACHE=1 \
+    yarn config set cache-folder /app/var/yarn-cache
 
 RUN composer completion bash > /etc/bash_completion.d/composer
 RUN nats --completion-script-bash > /etc/bash_completion.d/nats
