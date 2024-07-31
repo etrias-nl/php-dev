@@ -37,24 +37,25 @@ jobs:
                     cache-to: type=gha,mode=max
             -
                 run: |
-                    docker run --rm "${{ steps.build.outputs.imageid }}" php -v
-                    docker run --rm "${{ steps.build.outputs.imageid }}" php -m
-                    docker run --rm "${{ steps.build.outputs.imageid }}" envsub --version
-                    docker run --rm "${{ steps.build.outputs.imageid }}" composer --version
-                    docker run --rm "${{ steps.build.outputs.imageid }}" pt-online-schema-change --version
-                    docker run --rm "${{ steps.build.outputs.imageid }}" nats --version
-                    docker run --rm "${{ steps.build.outputs.imageid }}" node --version
-                    docker run --rm "${{ steps.build.outputs.imageid }}" yarn --version
-                    docker run --rm "${{ steps.build.outputs.imageid }}" composer --working-dir=/usr/local/etc/tools normalize --dry-run
-                    docker run --rm "${{ steps.build.outputs.imageid }}" phplint --version
-                    docker run --rm "${{ steps.build.outputs.imageid }}" php-cs-fixer --version --version
-                    docker run --rm "${{ steps.build.outputs.imageid }}" phpunit --version
-                    docker run --rm "${{ steps.build.outputs.imageid }}" psalm --version
-                    docker run --rm "${{ steps.build.outputs.imageid }}" rector --version
-                    docker run --rm "${{ steps.build.outputs.imageid }}" yamllint --version
-                    docker run --rm "${{ steps.build.outputs.imageid }}" s3cmd --version
-                    docker run --rm "${{ steps.build.outputs.imageid }}" shellcheck --version
-                    docker run --rm "${{ steps.build.outputs.imageid }}" dotenv-linter --version
+                    set -eu
+                    docker run --rm '${{ steps.build.outputs.imageid }}' php -v
+                    docker run --rm '${{ steps.build.outputs.imageid }}' php -m
+                    docker run --rm '${{ steps.build.outputs.imageid }}' envsub --version
+                    docker run --rm '${{ steps.build.outputs.imageid }}' composer --version
+                    docker run --rm '${{ steps.build.outputs.imageid }}' pt-online-schema-change --version
+                    docker run --rm '${{ steps.build.outputs.imageid }}' nats --version
+                    docker run --rm '${{ steps.build.outputs.imageid }}' node --version
+                    docker run --rm '${{ steps.build.outputs.imageid }}' yarn --version
+                    docker run --rm '${{ steps.build.outputs.imageid }}' composer --working-dir=/usr/local/etc/tools normalize --dry-run
+                    docker run --rm '${{ steps.build.outputs.imageid }}' phplint --version
+                    docker run --rm '${{ steps.build.outputs.imageid }}' php-cs-fixer --version --version
+                    docker run --rm '${{ steps.build.outputs.imageid }}' phpunit --version
+                    docker run --rm '${{ steps.build.outputs.imageid }}' psalm --version
+                    docker run --rm '${{ steps.build.outputs.imageid }}' rector --version
+                    docker run --rm '${{ steps.build.outputs.imageid }}' yamllint --version
+                    docker run --rm '${{ steps.build.outputs.imageid }}' s3cmd --version
+                    docker run --rm '${{ steps.build.outputs.imageid }}' shellcheck --version
+                    docker run --rm '${{ steps.build.outputs.imageid }}' dotenv-linter --version
             -
                 uses: docker/login-action@v3.3.0
                 with:
