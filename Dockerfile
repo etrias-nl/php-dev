@@ -48,6 +48,8 @@ RUN --mount=type=cache,target=/app/var/composer/cache \
 RUN ln -sfn psalm.phar vendor/bin/psalm
 ENV PATH="${PATH}:/usr/local/etc/tools/vendor/bin"
 
+RUN mkdir -p -m 0777 /home/docker
+
 WORKDIR /app
 
 RUN chmod 0777 /usr/local/share/.yarnrc && ln -s /usr/local/share/.yarnrc /.yarnrc # @todo cleanup
