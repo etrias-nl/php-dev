@@ -33,8 +33,6 @@ COPY docker/dev.bashrc /usr/local/etc/
 RUN echo '. /usr/local/etc/dev.bashrc' >> /etc/bash.bashrc
 
 ENV COMPOSER_HOME=/app/var/composer
-RUN DISABLE_V8_COMPILE_CACHE=1 \
-    yarn config set cache-folder /app/var/yarn-cache
 
 RUN composer completion bash > /etc/bash_completion.d/composer
 RUN nats --completion-script-bash > /etc/bash_completion.d/nats
@@ -48,8 +46,5 @@ RUN --mount=type=cache,target=/app/var/composer/cache \
 RUN ln -sfn psalm.phar vendor/bin/psalm
 ENV PATH="${PATH}:/usr/local/etc/tools/vendor/bin"
 
-RUN mkdir -p -m 0777 /home/docker
-
 WORKDIR /app
 
-RUN chmod 0777 /usr/local/share/.yarnrc && ln -s /usr/local/share/.yarnrc /.yarnrc # @todo cleanup
