@@ -4,7 +4,7 @@
         "ergebnis/composer-normalize": "^2.43.0",
         "friendsofphp/php-cs-fixer": "^3.62.0",
         "overtrue/phplint": "^9.4.1",
-        "phpunit/phpunit": "^10.5.29",
+        "phpunit/phpunit": "^10.5.30",
         "psalm/phar": "^5.25.0",
         "rector/rector": "^1.2.3",
         "symfony/requirements-checker": "^2.0.1"
