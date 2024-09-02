@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f3c115addc8af48e07ec576cbf90700e",
+    "content-hash": "d38227efc6141c5ce0056168dac6bfc0",
     "packages": [
         {
             "name": "clue/ndjson-react",
@@ -815,16 +815,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v3.63.1",
+            "version": "v3.64.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-                "reference": "ee3cc2e1fbfbddf98c17d4615db574a2a311c1ea"
+                "reference": "58dd9c931c785a79739310aef5178928305ffa67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/ee3cc2e1fbfbddf98c17d4615db574a2a311c1ea",
-                "reference": "ee3cc2e1fbfbddf98c17d4615db574a2a311c1ea",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/58dd9c931c785a79739310aef5178928305ffa67",
+                "reference": "58dd9c931c785a79739310aef5178928305ffa67",
                 "shasum": ""
             },
             "require": {
@@ -906,7 +906,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
-                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.63.1"
+                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.64.0"
             },
             "funding": [
                 {
@@ -914,7 +914,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-08-26T14:03:20+00:00"
+            "time": "2024-08-30T23:09:38+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
