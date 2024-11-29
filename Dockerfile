@@ -1,6 +1,6 @@
 FROM node:16.20.2-slim AS node
 
-FROM etriasnl/php-fpm:8.1.31-30
+FROM etriasnl/php-fpm:8.3.14-1
 
 RUN ln -srf /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
 
