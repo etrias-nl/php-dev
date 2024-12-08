@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e99a665b70dce506b0bbb4a7b1bb8229",
+    "content-hash": "fdaf70cf15a4fa2292bab684d00bce24",
     "packages": [
         {
             "name": "clue/ndjson-react",
@@ -1390,16 +1390,16 @@
         },
         {
             "name": "overtrue/phplint",
-            "version": "9.5.4",
+            "version": "9.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/phplint.git",
-                "reference": "7999b43e4a898b8427959585e4960d71bedddb4e"
+                "reference": "c074e6a944ead268ad1fbecfef67e978c99ddc09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/overtrue/phplint/zipball/7999b43e4a898b8427959585e4960d71bedddb4e",
-                "reference": "7999b43e4a898b8427959585e4960d71bedddb4e",
+                "url": "https://api.github.com/repos/overtrue/phplint/zipball/c074e6a944ead268ad1fbecfef67e978c99ddc09",
+                "reference": "c074e6a944ead268ad1fbecfef67e978c99ddc09",
                 "shasum": ""
             },
             "require": {
@@ -1427,16 +1427,16 @@
             ],
             "type": "library",
             "extra": {
-                "bamarni-bin": {
-                    "bin-links": true,
-                    "target-directory": "vendor-bin",
-                    "forward-command": true
-                },
                 "hooks": {
                     "pre-commit": [
                         "composer style:fix",
                         "composer code:check"
                     ]
+                },
+                "bamarni-bin": {
+                    "bin-links": true,
+                    "forward-command": true,
+                    "target-directory": "vendor-bin"
                 },
                 "branch-alias": {
                     "dev-main": "9.5.x-dev"
@@ -1471,7 +1471,7 @@
             ],
             "support": {
                 "issues": "https://github.com/overtrue/phplint/issues",
-                "source": "https://github.com/overtrue/phplint/tree/9.5.4"
+                "source": "https://github.com/overtrue/phplint/tree/9.5.5"
             },
             "funding": [
                 {
@@ -1479,7 +1479,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-11-01T04:32:38+00:00"
+            "time": "2024-12-08T05:45:05+00:00"
         },
         {
             "name": "phar-io/manifest",
