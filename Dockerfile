@@ -35,7 +35,6 @@ RUN echo '. /usr/local/etc/dev.bashrc' >> /etc/bash.bashrc
 ENV COMPOSER_HOME=/app/var/composer
 
 RUN composer completion bash > /etc/bash_completion.d/composer
-RUN nats --completion-script-bash > /etc/bash_completion.d/nats
 RUN chmod go+w /etc/bash_completion.d
 
 WORKDIR /usr/local/etc/tools
