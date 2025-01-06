@@ -6,7 +6,7 @@
         "overtrue/phplint": "^9.5.5",
         "phpunit/phpunit": "^11.5.2",
         "psalm/phar": "^5.26.1",
-        "rector/rector": "^2.0.5",
+        "rector/rector": "^2.0.6",
         "symfony/requirements-checker": "^2.0.3"
     },
     "replace": {
