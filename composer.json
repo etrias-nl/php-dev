@@ -3,7 +3,7 @@
         "php": "~8.3.15",
         "ergebnis/composer-normalize": "^2.45.0",
         "friendsofphp/php-cs-fixer": "^3.68.0",
-        "overtrue/phplint": "^9.5.5",
+        "overtrue/phplint": "^9.5.6",
         "phpunit/phpunit": "^11.5.3",
         "psalm/phar": "^5.26.1",
         "rector/rector": "^2.0.6",
