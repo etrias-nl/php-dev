@@ -53,6 +53,7 @@ jobs:
                     docker run --rm '${{ steps.build.outputs.imageid }}' s3cmd --version
                     docker run --rm '${{ steps.build.outputs.imageid }}' shellcheck --version
                     docker run --rm '${{ steps.build.outputs.imageid }}' dotenv-linter --version
+                    docker run --rm '${{ steps.build.outputs.imageid }}' nats --version
     push:
         needs: [ build ]
         runs-on: ubuntu-latest

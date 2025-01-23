@@ -24,8 +24,7 @@ RUN ln -s /usr/lib/node_modules/npm/bin/npm-cli.js /usr/bin/npm
 
 RUN curl -sSfL 'https://raw.githubusercontent.com/dotenv-linter/dotenv-linter/master/install.sh' | sh -s -- -b /usr/bin v3.3.0
 
-RUN curl -L "https://github.com/nats-io/natscli/releases/latest/download/nats-$(curl -sSf 'https://api.github.com/repos/nats-io/natscli/releases/latest' | grep '"tag_name":' | sed -E 's/.*"tag_name": "v([^"]+)".*/\1/')-amd64.deb" -o /tmp/nats.deb && \
-    dpkg -i /tmp/nats.deb && rm -f /tmp/nats.deb
+RUN curl -sSfL 'https://binaries.nats.dev/nats-io/natscli/nats@latest' | PREFIX=/usr/bin sh
 
 COPY docker/php-dev.ini /usr/local/etc/php/conf.d/
 
