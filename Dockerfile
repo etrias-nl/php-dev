@@ -24,6 +24,8 @@ RUN ln -s /usr/lib/node_modules/npm/bin/npm-cli.js /usr/bin/npm
 
 RUN curl -sSfL 'https://raw.githubusercontent.com/dotenv-linter/dotenv-linter/master/install.sh' | sh -s -- -b /usr/bin v3.3.0
 
+RUN curl -sSfL 'https://binaries.nats.dev/nats-io/natscli/nats@latest' | PREFIX=/usr/bin sh
+
 COPY docker/php-dev.ini /usr/local/etc/php/conf.d/
 
 COPY docker/dev.bashrc /usr/local/etc/
