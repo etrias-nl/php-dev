@@ -14,7 +14,7 @@ jobs:
                     fetch-depth: 0 # Required to make it possible to compare with PR base branch
             -
                 id: composer_diff
-                uses: IonBazan/composer-diff-action@v1.0.6
+                uses: IonBazan/composer-diff-action@v1.1.0
                 with:
                     with-links: true
             -
