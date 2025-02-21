@@ -23,7 +23,7 @@ COPY --from=node /usr/local/lib/node_modules /usr/lib/node_modules
 RUN ln -s /usr/lib/node_modules/npm/bin/npm-cli.js /usr/bin/npm
 
 # renovate: datasource=github-releases depName=dotenv-linter packageName=dotenv-linter/dotenv-linter
-ENV DOTENV_LINTER_VERSION='v3.2.0'
+ENV DOTENV_LINTER_VERSION=v3.3.0
 RUN curl -sSfL "https://raw.githubusercontent.com/dotenv-linter/dotenv-linter/${DOTENV_LINTER_VERSION}/install.sh" | sh -s -- -b /usr/bin
 
 RUN curl -sSfL 'https://binaries.nats.dev/nats-io/natscli/nats@latest' | PREFIX=/usr/bin sh
