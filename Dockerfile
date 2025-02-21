@@ -26,7 +26,9 @@ RUN ln -s /usr/lib/node_modules/npm/bin/npm-cli.js /usr/bin/npm
 ENV DOTENV_LINTER_VERSION=v3.3.0
 RUN curl -sSfL "https://raw.githubusercontent.com/dotenv-linter/dotenv-linter/${DOTENV_LINTER_VERSION}/install.sh" | sh -s -- -b /usr/bin
 
-RUN curl -sSfL 'https://binaries.nats.dev/nats-io/natscli/nats@latest' | PREFIX=/usr/bin sh
+# renovate: datasource=github-releases depName=natscli packageName=nats-io/natscli
+ENV NATSCLI_VERSION=v0.1.5
+RUN curl -sSfL "https://binaries.nats.dev/nats-io/natscli/nats@${NATSCLI_VERSION}" | PREFIX=/usr/bin sh
 
 COPY docker/php-dev.ini /usr/local/etc/php/conf.d/
 
