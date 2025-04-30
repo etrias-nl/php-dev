@@ -55,3 +55,4 @@ ENV PATH="${PATH}:/usr/local/etc/tools/vendor/bin"
 WORKDIR /app
 
 RUN git config --global --add safe.directory /app
+RUN npm config --global set engine-strict=true
