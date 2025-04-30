@@ -1,7 +1,7 @@
 FROM node:16.20.2-slim AS node
 
 # renovate: datasource=github-releases depName=npm packageName=npm/cli
-ENV NPM_VERSION=9.9.4
+ENV NPM_VERSION=10.9.2
 RUN npm install -g "npm@${NPM_VERSION}"
 
 FROM etriasnl/php-fpm:8.3.20-26
