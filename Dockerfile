@@ -25,6 +25,7 @@ RUN --mount=type=cache,target=/var/cache/apt \
 COPY --from=node /usr/local/bin/node /usr/bin/node
 COPY --from=node /usr/local/lib/node_modules /usr/lib/node_modules
 RUN ln -s /usr/lib/node_modules/npm/bin/npm-cli.js /usr/bin/npm
+RUN ln -s /usr/lib/node_modules/npm/bin/npx-cli.js /usr/bin/npx
 
 # renovate: datasource=github-releases depName=dotenv-linter packageName=dotenv-linter/dotenv-linter
 ENV DOTENV_LINTER_VERSION=v3.3.0
