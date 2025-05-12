@@ -4,7 +4,7 @@ FROM node:22.15.0-slim AS node
 ENV NPM_VERSION=11.3.0
 RUN npm install -g "npm@${NPM_VERSION}"
 
-FROM etriasnl/php-fpm:8.3.20-26
+FROM etriasnl/php-fpm:8.3.21-27
 
 RUN ln -srf /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
 
