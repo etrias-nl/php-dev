@@ -57,3 +57,4 @@ WORKDIR /app
 
 RUN git config --global --add safe.directory /app
 RUN npm config --global set engine-strict=true
+RUN npm config --global set logs-max=0
