@@ -1,4 +1,4 @@
-FROM node:22.15.1-slim AS node
+FROM node:22.16.0-slim AS node
 
 # renovate: datasource=github-releases depName=npm packageName=npm/cli
 ENV NPM_VERSION=11.4.0
