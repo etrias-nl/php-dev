@@ -45,8 +45,6 @@ jobs:
                     docker run --rm '${{ steps.build.outputs.imageid }}' composer --version
                     docker run --rm '${{ steps.build.outputs.imageid }}' composer --working-dir=/usr/local/etc/tools normalize --dry-run
                     docker run --rm '${{ steps.build.outputs.imageid }}' pt-online-schema-change --version
-                    docker run --rm '${{ steps.build.outputs.imageid }}' node --version
-                    docker run --rm '${{ steps.build.outputs.imageid }}' npm --version
                     docker run --rm '${{ steps.build.outputs.imageid }}' phplint --version
                     docker run --rm '${{ steps.build.outputs.imageid }}' php-cs-fixer --version --version
                     docker run --rm '${{ steps.build.outputs.imageid }}' phpunit --version

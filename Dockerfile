@@ -1,9 +1,3 @@
-FROM node:22.16.0-slim AS node
-
-# renovate: datasource=github-releases depName=npm packageName=npm/cli
-ENV NPM_VERSION=11.4.1
-RUN npm install -g "npm@${NPM_VERSION}"
-
 FROM etriasnl/php-fpm:8.3.21-30
 
 RUN ln -srf /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
@@ -21,11 +15,6 @@ RUN --mount=type=cache,target=/var/cache/apt \
     libdbi-perl libdbd-mysql-perl \
     gdb && \
     rm -rf /var/lib/apt/lists/*
-
-COPY --from=node /usr/local/bin/node /usr/bin/node
-COPY --from=node /usr/local/lib/node_modules /usr/lib/node_modules
-RUN ln -s /usr/lib/node_modules/npm/bin/npm-cli.js /usr/bin/npm
-RUN ln -s /usr/lib/node_modules/npm/bin/npx-cli.js /usr/bin/npx
 
 # renovate: datasource=github-releases depName=dotenv-linter packageName=dotenv-linter/dotenv-linter
 ENV DOTENV_LINTER_VERSION=v3.3.0
@@ -56,5 +45,3 @@ ENV PATH="${PATH}:/usr/local/etc/tools/vendor/bin"
 WORKDIR /app
 
 RUN git config --global --add safe.directory /app
-RUN npm config --global set engine-strict=true
-RUN npm config --global set logs-max=0
