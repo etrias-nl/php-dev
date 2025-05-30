@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc40071d1cab7e89a7dba825f9f7895f",
+    "content-hash": "81437bbf0b9d85910ff18cf9089a1030",
     "packages": [
         {
             "name": "clue/ndjson-react",
@@ -1987,16 +1987,16 @@
         },
         {
             "name": "psalm/phar",
-            "version": "6.11.0",
+            "version": "6.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/psalm/phar.git",
-                "reference": "05e86b0507c694991f2ebabb74e1671b0abc0ae7"
+                "reference": "0668b277200a19122f9a9d7e3ce4125b0d42b040"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psalm/phar/zipball/05e86b0507c694991f2ebabb74e1671b0abc0ae7",
-                "reference": "05e86b0507c694991f2ebabb74e1671b0abc0ae7",
+                "url": "https://api.github.com/repos/psalm/phar/zipball/0668b277200a19122f9a9d7e3ce4125b0d42b040",
+                "reference": "0668b277200a19122f9a9d7e3ce4125b0d42b040",
                 "shasum": ""
             },
             "require": {
@@ -2016,9 +2016,9 @@
             "description": "Composer-based Psalm Phar",
             "support": {
                 "issues": "https://github.com/psalm/phar/issues",
-                "source": "https://github.com/psalm/phar/tree/6.11.0"
+                "source": "https://github.com/psalm/phar/tree/6.12.0"
             },
-            "time": "2025-05-20T11:15:03+00:00"
+            "time": "2025-05-29T19:53:46+00:00"
         },
         {
             "name": "psr/cache",
