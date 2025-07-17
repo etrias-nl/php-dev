@@ -22,7 +22,12 @@ RUN curl -sSfL "https://raw.githubusercontent.com/dotenv-linter/dotenv-linter/${
 
 # renovate: datasource=github-releases depName=natscli packageName=nats-io/natscli
 ENV NATSCLI_VERSION=v0.2.3
-RUN curl -sSfL "https://binaries.nats.dev/nats-io/natscli/nats@${NATSCLI_VERSION}" | PREFIX=/usr/bin sh
+RUN ARCH=$(uname -m | sed 's/x86_64/amd64/' | sed 's/aarch64/arm64/') && \
+    curl -sSfL "https://github.com/nats-io/natscli/releases/download/${NATSCLI_VERSION}/nats-${NATSCLI_VERSION#v}-linux-${ARCH}.zip" -o /tmp/natscli.zip && \
+    unzip -q /tmp/natscli.zip "nats-${NATSCLI_VERSION#v}-linux-${ARCH}/nats" -d /tmp && \
+    mv /tmp/nats-${NATSCLI_VERSION#v}-linux-${ARCH}/nats /usr/bin/nats && \
+    chmod +x /usr/bin/nats && \
+    rm -rf /tmp/natscli.zip /tmp/nats-${NATSCLI_VERSION#v}-linux-${ARCH}
 
 COPY docker/php-dev.ini /usr/local/etc/php/conf.d/
 
