@@ -1,5 +1,7 @@
 FROM etriasnl/php-fpm:8.3.23-33
 
+RUN sed -i 's|http://deb.debian.org/debian|http://cloudfront.debian.net/debian|g' /etc/apt/sources.list.d/debian.sources
+
 RUN ln -srf /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
 
 RUN install-php-extensions xdebug
