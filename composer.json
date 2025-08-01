@@ -8,7 +8,7 @@
         "psalm/phar": "^6.13.0",
         "rector/rector": "^2.1.2",
         "symfony/requirements-checker": "^2.0.3",
-        "vincentlanglet/twig-cs-fixer": "^3.8.1"
+        "vincentlanglet/twig-cs-fixer": "^3.9.0"
     },
     "replace": {
         "paragonie/random_compat": "*",
