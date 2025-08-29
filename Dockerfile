@@ -43,7 +43,7 @@ WORKDIR /usr/local/etc/tools
 
 COPY ["composer.json", "composer.lock", "./"]
 RUN --mount=type=cache,target=/app/var/composer/cache \
-    composer install --prefer-dist --no-progress --optimize-autoloader
+    composer update --no-progress -n --lock
 RUN ln -sfn psalm.phar vendor/bin/psalm
 ENV PATH="${PATH}:/usr/local/etc/tools/vendor/bin"
 
