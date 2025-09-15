@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bae8998ac9fd69de09c84a35e8899458",
+    "content-hash": "50c5916b44916ded6ee31b28a2a36d4a",
     "packages": [
         {
             "name": "clue/ndjson-react",
