@@ -17,7 +17,7 @@ RUN --mount=type=cache,target=/var/cache/apt \
     rm -rf /var/lib/apt/lists/*
 
 # renovate: datasource=github-releases depName=dotenv-linter packageName=dotenv-linter/dotenv-linter
-ENV DOTENV_LINTER_VERSION=v3.3.0
+ENV DOTENV_LINTER_VERSION=v4.0.0
 RUN curl -sSfL "https://raw.githubusercontent.com/dotenv-linter/dotenv-linter/${DOTENV_LINTER_VERSION}/install.sh" | sh -s -- -b /usr/bin
 
 # renovate: datasource=github-releases depName=natscli packageName=nats-io/natscli
