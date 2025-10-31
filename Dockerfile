@@ -2,8 +2,6 @@ FROM etriasnl/php-fpm:8.3.27-34
 
 RUN ln -srf /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
 
-RUN install-php-extensions xdebug
-
 RUN --mount=type=cache,target=/var/cache/apt \
     apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates dnsutils iputils-ping lsof net-tools \
@@ -15,6 +13,10 @@ RUN --mount=type=cache,target=/var/cache/apt \
     libdbi-perl libdbd-mysql-perl \
     gdb && \
     rm -rf /var/lib/apt/lists/*
+
+# renovate: datasource=github-releases depName=xdebug packageName=xdebug/xdebug
+ENV EXT_XDEBUG_VERSION=3.4.7
+RUN install-php-extensions xdebug-${EXT_XDEBUG_VERSION}
 
 # renovate: datasource=github-releases depName=dotenv-linter packageName=dotenv-linter/dotenv-linter
 ENV DOTENV_LINTER_VERSION=v4.0.0
