@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cfa3d1ec69b7a28416bb6eb6fda5fb2c",
+    "content-hash": "37056eb7a1fe60095eabc4d8c4f38ab4",
     "packages": [
         {
             "name": "clue/ndjson-react",
@@ -1290,16 +1290,16 @@
         },
         {
             "name": "overtrue/phplint",
-            "version": "9.6.2",
+            "version": "9.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/phplint.git",
-                "reference": "e2ebdbac93fa6ffe45d724e350f77df34c1f8fb4"
+                "reference": "b0ec1d07b37a37e7fc872c8bdbddacadcecbe047"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/overtrue/phplint/zipball/e2ebdbac93fa6ffe45d724e350f77df34c1f8fb4",
-                "reference": "e2ebdbac93fa6ffe45d724e350f77df34c1f8fb4",
+                "url": "https://api.github.com/repos/overtrue/phplint/zipball/b0ec1d07b37a37e7fc872c8bdbddacadcecbe047",
+                "reference": "b0ec1d07b37a37e7fc872c8bdbddacadcecbe047",
                 "shasum": ""
             },
             "require": {
@@ -1371,7 +1371,7 @@
             ],
             "support": {
                 "issues": "https://github.com/overtrue/phplint/issues",
-                "source": "https://github.com/overtrue/phplint/tree/9.6.2"
+                "source": "https://github.com/overtrue/phplint/tree/9.6.3"
             },
             "funding": [
                 {
@@ -1379,7 +1379,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-04-10T13:12:51+00:00"
+            "time": "2025-11-27T13:49:59+00:00"
         },
         {
             "name": "phar-io/manifest",
