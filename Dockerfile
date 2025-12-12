@@ -15,7 +15,7 @@ RUN --mount=type=cache,target=/var/cache/apt \
     rm -rf /var/lib/apt/lists/*
 
 # renovate: datasource=github-releases depName=xdebug packageName=xdebug/xdebug
-ENV EXT_XDEBUG_VERSION=3.4.7
+ENV EXT_XDEBUG_VERSION=3.5.0
 RUN install-php-extensions xdebug-${EXT_XDEBUG_VERSION}
 
 # renovate: datasource=github-releases depName=dotenv-linter packageName=dotenv-linter/dotenv-linter
