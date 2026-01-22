@@ -1,4 +1,4 @@
-FROM etriasnl/php-fpm:8.3.29-39
+FROM etriasnl/php-fpm:8.3.30-40
 
 RUN ln -srf /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
 
