@@ -1,7 +1,7 @@
 {
     "require": {
         "php": "~8.3.30",
-        "ergebnis/composer-normalize": "^2.48.2",
+        "ergebnis/composer-normalize": "^2.49.0",
         "friendsofphp/php-cs-fixer": "^3.92.5",
         "overtrue/phplint": "^9.7.1",
         "phpunit/phpunit": "^12.5.7",
