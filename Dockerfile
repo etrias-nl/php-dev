@@ -23,7 +23,7 @@ ENV DOTENV_LINTER_VERSION=v4.0.0
 RUN curl -sSfL "https://raw.githubusercontent.com/dotenv-linter/dotenv-linter/${DOTENV_LINTER_VERSION}/install.sh" | sh -s -- -b /usr/bin
 
 # renovate: datasource=github-releases depName=natscli packageName=nats-io/natscli
-ENV NATSCLI_VERSION=v0.3.0
+ENV NATSCLI_VERSION=v0.3.1
 RUN ARCH=$(uname -m | sed 's/x86_64/amd64/' | sed 's/aarch64/arm64/') && \
     curl -sSfL "https://github.com/nats-io/natscli/releases/download/${NATSCLI_VERSION}/nats-${NATSCLI_VERSION#v}-linux-${ARCH}.zip" -o /tmp/natscli.zip && \
     unzip -q /tmp/natscli.zip "nats-${NATSCLI_VERSION#v}-linux-${ARCH}/nats" -d /tmp && \
