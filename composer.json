@@ -6,7 +6,7 @@
         "overtrue/phplint": "^9.7.1",
         "phpunit/phpunit": "^12.5.9",
         "psalm/phar": "^6.15.0",
-        "rector/rector": "^2.3.5",
+        "rector/rector": "^2.3.6",
         "symfony/requirements-checker": "^2.0.3",
         "vincentlanglet/twig-cs-fixer": "^3.13.0"
     },
