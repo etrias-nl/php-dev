@@ -29,7 +29,7 @@ jobs:
                     keep-state: true
             -
                 id: build
-                uses: docker/build-push-action@v6.18.0
+                uses: docker/build-push-action@v6.19.2
                 env:
                     DOCKER_BUILD_SUMMARY: false
                 with:
@@ -73,7 +73,7 @@ jobs:
                         latest=false
                         suffix=-${{ matrix.runner }}
             -
-                uses: docker/build-push-action@v6.18.0
+                uses: docker/build-push-action@v6.19.2
                 env:
                     DOCKER_BUILD_SUMMARY: false
                 with:
